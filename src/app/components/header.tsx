@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
 
     return (
-      <nav className="bg-gradient-to-r from-[#8a4c76] via-[#562174] to-[#9c4d83] fixed w-screen z-20 top-0 start-0 ">
+      <nav className="bg-gradient-to-r from-[#8a4c76] via-[#562174] to-[#9c4d83] fixed w-screen z-20 top-0">
         <div className="w-screen flex flex-wrap items-center justify-between px-10 p-4">
           <a href="#" className="flex justify-center items-center flex-col space-x-3 rtl:space-x-reverse">
             <img src="/Logo.png" className="h-14" alt="Flowbite Logo" />
