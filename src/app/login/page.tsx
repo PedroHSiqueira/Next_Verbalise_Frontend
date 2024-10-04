@@ -1,17 +1,61 @@
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { useUsuarioStore } from '@/context/usuario';
+
+type Inputs = {
+  email: string;
+  senha: string;
+  continuarConectado: boolean;
+};
 
 export default function login() {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const router = useRouter();
+  const { logar } = useUsuarioStore();
+
+  async function verificaLogin(data: Inputs) {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL_API}/usuarios/login`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: data.email, senha: data.senha }),
+      },
+    );
+    console.log(response);
+    if (response.status === 200) {
+      const dados = await response.json();
+      console.log(dados);
+      logar(dados);
+
+      if (data.continuarConectado) {
+        localStorage.setItem('client_key', JSON.stringify(dados.id));
+      } else {
+        if (localStorage.getItem('client_key')) {
+          localStorage.removeItem('client_key');
+        }
+      }
+
+      router.push('/');
+    } else {
+      alert('Erro ao logar');
+    }
+  }
+
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
-      <Link href={"/"} className="flex flex-col items-center justify-center">
+      <Link href={'/'} className="flex flex-col items-center justify-center">
         <img src="./logo_branca.png" alt="Logo" />
-        <span className="p-0 pr-2 text-[#B38000]  elf-center text-2xl font-semibold whitespace-nowrap">Verbalize</span>
+        <span className="p-0 pr-2 text-[#B38000]  elf-center text-2xl font-semibold whitespace-nowrap">
+          Verbalize
+        </span>
       </Link>
-      <form className="w-2/6">
-        <label
-          htmlFor="input-group-1"
-          className="block mb-2 text-sm font-medium text-white"
-        >
+      <form className="w-2/6" onSubmit={handleSubmit(verificaLogin)}>
+        <label htmlFor="input-group-1" className="block mb-2 text-sm font-medium text-white" >
           Seu Email:
         </label>
         <div className="relative mb-6">
@@ -28,10 +72,11 @@ export default function login() {
             </svg>
           </div>
           <input
-            type="text"
+            type="email"
             id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
+            {...register('email')}
           />
         </div>
         <label
@@ -65,6 +110,7 @@ export default function login() {
             id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
+            {...register('senha')}
           />
         </div>
         <div className="flex items-start mb-5">
@@ -74,6 +120,7 @@ export default function login() {
               type="checkbox"
               value=""
               className="w-4 h-4 border border-gray-300 rounded bg-gray-700 focus:ring-3 focus:ring-blue-300 "
+              {...register('continuarConectado')}
             />
           </div>
           <label
@@ -90,8 +137,12 @@ export default function login() {
           Entrar
         </button>
         <div className="flex justify-between pt-5">
-          <a href="/" className="text-white font-semibold">Registrar-se</a>
-          <a href="/" className="text-white font-semibold">Esqueceu sua senha?</a>
+          <a href="/" className="text-white font-semibold">
+            Registrar-se
+          </a>
+          <a href="/" className="text-white font-semibold">
+            Esqueceu sua senha?
+          </a>
         </div>
       </form>
     </div>

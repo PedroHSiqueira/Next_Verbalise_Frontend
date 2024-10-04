@@ -13,6 +13,10 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
     },
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+      jetbrains: ["JetBrains Mono", "monospace"],
+    },
   },
   plugins: [],
 };
