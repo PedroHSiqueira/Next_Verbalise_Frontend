@@ -3,8 +3,9 @@ import Link from "next/link";
 export default function login() {
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
-      <Link href={"/"}>
-        <img src="./logo.png" alt="Logo" />
+      <Link href={"/"} className="flex flex-col items-center justify-center">
+        <img src="./logo_branca.png" alt="Logo" />
+        <span className="p-0 pr-2 text-[#B38000]  elf-center text-2xl font-semibold whitespace-nowrap">Verbalize</span>
       </Link>
       <form className="w-2/6">
         <label
@@ -30,6 +31,7 @@ export default function login() {
             type="text"
             id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            required
           />
         </div>
         <label
@@ -62,6 +64,7 @@ export default function login() {
             type="password"
             id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            required
           />
         </div>
         <div className="flex items-start mb-5">
@@ -71,7 +74,6 @@ export default function login() {
               type="checkbox"
               value=""
               className="w-4 h-4 border border-gray-300 rounded bg-gray-700 focus:ring-3 focus:ring-blue-300 "
-              required
             />
           </div>
           <label

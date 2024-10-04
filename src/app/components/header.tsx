@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="bg-gradient-to-r from-[#8a4c76] via-[#562174] to-[#9c4d83] fixed w-screen z-20 top-0">
         <div className="w-screen flex flex-wrap items-center justify-between px-10 p-4">
           <a href="#" className="flex justify-center items-center flex-col space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.png" className="h-14" alt="Flowbite Logo" />
+            <img src="/Logo_preta.png" className="h-14" alt="Flowbite Logo" />
             <span className="p-0 pr-2  elf-center text-2xl font-semibold whitespace-nowrap dark:text-white">Verbalize</span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
