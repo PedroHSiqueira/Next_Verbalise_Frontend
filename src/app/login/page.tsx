@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function login() {
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
-      <figure>
+      <Link href={"/"}>
         <img src="./logo.png" alt="Logo" />
-      </figure>
+      </Link>
       <form className="w-2/6">
         <label
           htmlFor="input-group-1"
@@ -86,8 +88,8 @@ export default function login() {
           Entrar
         </button>
         <div className="flex justify-between pt-5">
-          <a href="/" className="font-semibold">Registrar-se</a>
-          <a href="/" className="font-semibold">Esqueceu sua senha?</a>
+          <a href="/" className="text-white font-semibold">Registrar-se</a>
+          <a href="/" className="text-white font-semibold">Esqueceu sua senha?</a>
         </div>
       </form>
     </div>
