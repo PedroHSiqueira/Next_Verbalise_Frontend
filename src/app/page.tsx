@@ -39,7 +39,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <img src="./landingPage/computador.png" className='hidden w-2/5 rounded-2xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block' />
+        <img src="./landingPage/computador.png" className='hidden w-2/5 rounded-2xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block lg:ml-40' />
       </section>
       <section className='p-10'>
         <h1 className='text-center font-bold text-3xl pb-5'>Alguns Idiomas que Você pode <span className='text-red-500 font-bold '>aprender</span> </h1>
@@ -79,7 +79,7 @@ export default function Home() {
       <div className='flex items-center justify-around'>
       <img className='hidden w-2/5 max-h-96 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block' src="./landingPage/menina.png" />
         <div className='flex items-center'>
-          <p className='max-w-lg text-xl font-sans font-normal'>Descubra o poder das conversas reais e faça parte de uma comunidade global de aprendizado. Com a Verbalize, você pode aprender um novo idioma de maneira autêntica, enquanto ensina sua própria língua. É simples, interativo e eficaz.
+          <p className='max-w-lg text-xl font-sans font-normal xl:mr-28'>Descubra o poder das conversas reais e faça parte de uma comunidade global de aprendizado. Com a Verbalize, você pode aprender um novo idioma de maneira autêntica, enquanto ensina sua própria língua. É simples, interativo e eficaz.
           </p>
         </div>
       </div>
