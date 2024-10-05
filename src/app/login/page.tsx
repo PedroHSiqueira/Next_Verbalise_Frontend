@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useUsuarioStore } from '@/context/usuario';
+import { useToast } from '@/hooks/use-toast';
+import { ToastAction } from '@radix-ui/react-toast';
 
 type Inputs = {
   email: string;
@@ -12,8 +14,9 @@ type Inputs = {
 
 export default function login() {
   const { register, handleSubmit } = useForm<Inputs>();
+  const { usuario, logar } = useUsuarioStore();
+  const { toast } = useToast();
   const router = useRouter();
-  const { logar } = useUsuarioStore();
 
   async function verificaLogin(data: Inputs) {
     const response = await fetch(
@@ -29,7 +32,6 @@ export default function login() {
     console.log(response);
     if (response.status === 200) {
       const dados = await response.json();
-      console.log(dados);
       logar(dados);
 
       if (data.continuarConectado) {
@@ -41,8 +43,19 @@ export default function login() {
       }
 
       router.push('/');
+
+      toast({
+        variant: 'success',
+        title: 'Login efetuado com sucesso',
+        description: `Seja bem-vindo a Verbalize!`,
+      });
     } else {
-      alert('Erro ao logar');
+      toast({
+        variant: 'destructive',
+        title: 'Algo deu errado',
+        description: 'Verifique suas credenciais e tente novamente',
+        action: <ToastAction altText="Repetir">Repetir</ToastAction>,
+      });
     }
   }
 
@@ -55,7 +68,10 @@ export default function login() {
         </span>
       </Link>
       <form className="w-2/6" onSubmit={handleSubmit(verificaLogin)}>
-        <label htmlFor="input-group-1" className="block mb-2 text-sm font-medium text-white" >
+        <label
+          htmlFor="input-group-1"
+          className="block mb-2 text-sm font-medium text-white"
+        >
           Seu Email:
         </label>
         <div className="relative mb-6">
@@ -73,7 +89,6 @@ export default function login() {
           </div>
           <input
             type="email"
-            id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('email')}
@@ -107,7 +122,6 @@ export default function login() {
           </div>
           <input
             type="password"
-            id="input-group-1"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('senha')}

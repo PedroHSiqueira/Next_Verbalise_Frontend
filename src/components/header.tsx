@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 export default function Header() {
   const { usuario, deslogar } = useUsuarioStore();
   const router = useRouter();
-
   function sairCliente() {
     deslogar();
     if (localStorage.getItem('client_key')) {
@@ -20,7 +19,7 @@ export default function Header() {
       <div className="w-screen flex flex-wrap items-center justify-between px-10 p-4">
         <a href="#" className="flex justify-center items-center flex-col space-x-3 rtl:space-x-reverse">
           <img src="/Logo_preta.png" className="h-14" alt="Flowbite Logo" />
-          <span className=" font-jetbrains p-0 pr-2  elf-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className=" font-jetbrains p-0 pr-2  elf-center text-2xl font-semibold whitespace-nowrap text-white">
             Verbalize
           </span>
         </a>
@@ -30,25 +29,25 @@ export default function Header() {
             id="navbar-sticky">
             <ul className="flex flex-col p-4 md:p-0 mt-4 gap-36  font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
               <li>
-                <Link href="#" className="flex items-center justify-center flex-col  py-2 px-3 text-gray-900 text-xl rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
-                <img src="./navbar/comunidade.png" alt="" className='w-16 h-14' />
+                <Link href="#" className="flex items-center justify-center flex-col  py-2 px-3 text-white text-xl rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                <img src="./navbar/comunidade.png" className='w-16 h-14' />
                   Comunidades
                 </Link>
               </li>
               <li>
-                <a href="#" className=" flex items-center justify-center flex-col py-2 px-3 text-gray-900 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
-                <img src="./navbar/mensagens.png" alt="" className='w-16 h-14' />
+                <a href="#" className=" flex items-center justify-center flex-col py-2 px-3 text-white text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                <img src="./navbar/mensagens.png" className='w-16 h-14' />
                   Mensagens
                 </a>
               </li>
               <li>
-                <Link href="#" className="flex items-center justify-center flex-col py-2 px-3 text-gray-900 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                <img src={usuario.foto} alt="" className=' rounded-full w-16 h-14' />
+                <Link href="#" className="flex items-center justify-center flex-col py-2 px-3 text-white text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <img src={usuario.foto} className=' rounded-full w-16 h-14' />
                   Perfil
                 </Link>
               </li>
               <li>
-                <span onClick={sairCliente} className="cursor-pointer block py-2 px-3 text-gray-900 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <span onClick={sairCliente} className="cursor-pointer flex items-center justify-center text-white text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                   Sair
                 </span>
               </li>
@@ -69,17 +68,17 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="block py-2 px-3 text-gray-900 text-xl rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                  <Link href="#" className="block py-2 px-3 text-white text-xl rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
                     Tornar-se um Cliente
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="block py-2 px-3 text-gray-900 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                  <Link href="#" className="block py-2 px-3 text-white text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
                     Sobre-nós
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="block py-2 px-3 text-gray-900 text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                  <Link href="#" className="block py-2 px-3 text-white text-xl rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
                     Registre-se
                   </Link>
                 </li>
