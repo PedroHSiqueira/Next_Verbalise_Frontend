@@ -5,7 +5,9 @@ import { useRouter } from 'next/navigation';
 import { useUsuarioStore } from '@/context/usuario';
 import { useToast } from '@/hooks/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from '@/components/ui/checkbox';
+import { HiEnvelope } from 'react-icons/hi2';
+import { HiLockClosed } from 'react-icons/hi2';
 
 type Inputs = {
   email: string;
@@ -77,16 +79,7 @@ export default function login() {
         </label>
         <div className="relative mb-6">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <svg
-              className="w-4 h-4 text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 16"
-            >
-              <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-              <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-            </svg>
+            <HiEnvelope className="text-gray-400" />
           </div>
           <input
             type="email"
@@ -103,23 +96,7 @@ export default function login() {
         </label>
         <div className="relative mb-6">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <svg
-              className="w-6 h-6 text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"
-              />
-            </svg>
+            <HiLockClosed className="text-gray-400" />
           </div>
           <input
             type="password"
@@ -150,7 +127,7 @@ export default function login() {
           Entrar
         </button>
         <div className="flex justify-between pt-5">
-          <a href="/" className="text-white font-semibold hover:text-[#B38000]">
+          <a href="/registro" className="text-white font-semibold hover:text-[#B38000]">
             Registrar-se
           </a>
           <a href="/" className="text-white font-semibold hover:text-[#B38000]">
