@@ -138,13 +138,13 @@ export default function Header() {
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Idiomas</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="flex items-center ml-2 gap-2">
+                  <DropdownMenuItem className="flex items-center gap-2">
                     <span className="fi fi-br" /> Português
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="flex items-center ml-2 gap-2">
+                  <DropdownMenuItem className="flex items-center gap-2">
                     <span className="fi fi-us" /> Inglês
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="flex items-center ml-2 gap-2">
+                  <DropdownMenuItem className="flex items-center gap-2">
                     <span className="fi fi-es" />
                     Espanhol
                   </DropdownMenuItem>

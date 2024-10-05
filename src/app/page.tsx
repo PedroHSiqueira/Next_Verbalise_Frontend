@@ -38,7 +38,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <img src="./landingPage/computador.png" className='hidden w-2/5 rounded-2xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block lg:ml-40' />
+        <img src="./landingPage/computador.png" className='hidden w-2/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block lg:ml-40' />
       </section>
       <section className='p-10'>
         <h1 className='text-center font-bold text-3xl pb-5'>Alguns Idiomas que Você pode <span className='text-red-500 font-bold '>aprender</span> </h1>
