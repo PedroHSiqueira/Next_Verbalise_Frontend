@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useUsuarioStore } from '@/context/usuario';
 import { useToast } from '@/hooks/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
+import { Checkbox } from "@/components/ui/checkbox"
 
 type Inputs = {
   email: string;
@@ -129,10 +130,8 @@ export default function login() {
         </div>
         <div className="flex items-start mb-5">
           <div className="flex items-center h-5">
-            <input
+            <Checkbox
               id="remember"
-              type="checkbox"
-              value=""
               className="w-4 h-4 border border-gray-300 rounded bg-gray-700 focus:ring-3 focus:ring-blue-300 "
               {...register('continuarConectado')}
             />
