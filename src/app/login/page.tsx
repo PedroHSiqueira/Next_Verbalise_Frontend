@@ -145,15 +145,15 @@ export default function login() {
         </div>
         <button
           type="submit"
-          className=" text-black bg-[#B38000] font-bold hover:bg-[#947321] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full px-5 py-2.5 text-center"
+          className="text-white bg-[#B38000] font-bold hover:bg-[#947321] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full px-5 py-2.5 text-center"
         >
           Entrar
         </button>
         <div className="flex justify-between pt-5">
-          <a href="/" className="text-white font-semibold">
+          <a href="/" className="text-white font-semibold hover:text-[#B38000]">
             Registrar-se
           </a>
-          <a href="/" className="text-white font-semibold">
+          <a href="/" className="text-white font-semibold hover:text-[#B38000]">
             Esqueceu sua senha?
           </a>
         </div>
