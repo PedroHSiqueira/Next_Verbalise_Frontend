@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import Header from '../components/header';
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { useUsuarioStore } from '@/context/usuario';
 
 export default function Home() {
