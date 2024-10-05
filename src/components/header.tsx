@@ -53,7 +53,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <span onClick={sairCliente} className="cursor-pointer transition delay-150 duration-300 ease-in-out flex items-center justify-center m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-9 py-4 text-center ">
+                <span onClick={sairCliente} className="cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex items-center justify-center m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-9 py-4 text-center ">
                   Sair
                 </span>
               </li>
