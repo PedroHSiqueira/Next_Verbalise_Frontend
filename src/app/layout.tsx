@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Verbalize",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="bg-[#ECECEC]">
         {children}
         <Toaster />
+        <Footer />
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Header from '../components/header';
 import { useEffect } from 'react';
 import { useUsuarioStore } from '@/context/usuario';
@@ -34,7 +33,7 @@ export default function Home() {
           <h1 className='text-center font-bold text-3xl'> Explore Novos Horizontes <br/> Linguísticos</h1>
           <p className='max-w-96 text-xl font-sans font-normal'>Bem-vindo à Verbalize, uma plataforma única onde falantes de diferentes línguas se conectam para ensinar e aprender uns com os outros. </p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="px-12 py-4 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xs text-center ">
+            <Link href={'#'} type="button" className="px-12 py-4 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-base text-center ">
               Comece Agora
             </Link>
           </div>
@@ -46,7 +45,7 @@ export default function Home() {
         <br />
         <div className='flex justify-around'>
           <div className='grid grid-cols-2 gap-10 lg:grid-cols-3 '>
-            <div className='bg-[#f1dfdf] flex flex-col items-center justify-center max-w-36 rounded-3xl py-2 px-3 hover:scale-105 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] transition delay-150 duration-150 ease-in-out'>
+            <div className='bg-[#f1dfdf] flex flex-col items-center justify-center max-w-36 rounded-3xl py-2 px-4 hover:scale-105 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] transition delay-150 duration-150 ease-in-out'>
               <img className='w-28 px-6 pb-2' src="./Bandeiras/china.png" />
               <p className='text-center font-black text-xl'>Mandarim</p>
             </div>
@@ -83,6 +82,39 @@ export default function Home() {
           </p>
         </div>
       </div>
+      </section>
+      <section className='m-2 mb-10'>
+        <div className='bg-[#83768d] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
+        <h1 className='text-center font-sans text-white text-3xl mb-5'>Conheça as assinaturas</h1>
+        <div className='flex flex-col gap-5 justify-around items-center xl:flex-row' >
+        <div className='text-start text-white max-w bg-zinc-900 rounded-3xl p-12 flex flex-col gap-5 '>
+          <h2 className='text-xl font-bold'>Verbalize Start</h2>
+          <h3 className='text-2xl font-bold  '>R$19.90 /mês</h3>
+          <p className='text-sm'>Acesso a chats de texto com parceiros linguísticos.</p>
+          <p className='text-sm'>Suporte básico por e-mail.</p>
+          <p className='text-sm'>Histórico de mensagens armazenado por 30 dias.</p>
+          <p className='text-sm'>Acesso a chats de texto com parceiros linguísticos.</p>
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
+            <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+              Compre Agora
+            </Link>
+          </div>
+        </div>
+        <div className='text-start text-white max-w bg-zinc-900 rounded-3xl p-12 flex flex-col gap-5 '>
+          <h2 className='text-xl font-bold'>Verbalize Plus</h2>
+          <h3 className='text-2xl font-bold  '>R$59.90 /mês</h3>
+          <p className='text-sm'>Todos os benefícios do plano Start.</p>
+          <p className='text-sm'>Suporte prioritário por e-mail.</p>
+          <p className='text-sm'>Histórico de mensagens ilimitado.</p>
+          <p className='text-sm'>Recurso de tradução automática embutido no chat.</p>
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
+            <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+              Compre Agora
+            </Link>
+          </div>
+        </div>
+        </div>
+        </div>
       </section>
       </main>
     </div>

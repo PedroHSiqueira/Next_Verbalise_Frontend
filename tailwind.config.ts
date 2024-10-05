@@ -59,7 +59,8 @@ const config: Config = {
   	},
   	fontFamily: {
   		sans: ["Inter", "sans-serif"],
-  		jetbrains: ["JetBrains Mono", "monospace"]
+  		jetbrains: ["JetBrains Mono", "monospace"],
+		poppins: ["Poppins", "sans-serif"]
   	}
   },
   plugins: [require("tailwindcss-animate")],
