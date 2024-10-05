@@ -130,6 +130,7 @@ export default function Header() {
               >
                 Login
               </Link>
+              {/* <DropdownMenu> sem funcionar ainda, Só para Fins de Estética */}
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <HiOutlineGlobe size={38} />
