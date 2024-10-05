@@ -1,5 +1,8 @@
 'use client';
+import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
 
 type Inputs = {
   nome: string;
@@ -8,6 +11,40 @@ type Inputs = {
 };
 
 export default function login() {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const { toast } = useToast();
+  const router = useRouter();
+
+  async function verificaCadastro(data: Inputs) {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL_API}/usuarios`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nome: data.nome, email: data.email, senha: data.senha }),
+      },
+    );
+    console.log(response);
+    if (response.status === 201) {
+      const dados = await response.json();
+      console.log(dados);
+      router.push('/login');
+      toast({
+        variant: 'success',
+        title: 'Cadastro efetuado com sucesso',
+        description: `Bem-vindo a Verbalize!`,
+      });
+    } else {
+      toast({
+        variant: 'destructive',
+        title: 'Algo deu errado',
+        description: 'Verifique as credenciais e tente novamente',
+      });
+    }
+  }
+
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
       <Link href={'/'} className="flex flex-col items-center justify-center">
@@ -16,7 +53,7 @@ export default function login() {
           Verbalize
         </span>
       </Link>
-      <form className="w-2/6">
+      <form className="w-2/6" onSubmit={handleSubmit(verificaCadastro)}>
         <label
           htmlFor="input-group-1"
           className="block mb-2 text-sm font-medium text-white"
@@ -45,9 +82,10 @@ export default function login() {
           </div>
 
           <input
-            type="password"
+            type="text"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
+            {...register('nome')}
           />
         </div>
         <label
@@ -73,6 +111,7 @@ export default function login() {
             type="email"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
+            {...register('email')}
           />
         </div>
         <label
@@ -106,6 +145,7 @@ export default function login() {
             type="password"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
+            {...register('senha')}
           />
         </div>
         <button
