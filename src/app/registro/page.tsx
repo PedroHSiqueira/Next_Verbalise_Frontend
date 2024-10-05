@@ -1,6 +1,12 @@
 'use client';
 import Link from 'next/link';
 
+type Inputs = {
+  nome: string;
+  email: string;
+  senha: string;
+};
+
 export default function login() {
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
