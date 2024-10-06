@@ -7,6 +7,7 @@ import { HiOutlineGlobe } from 'react-icons/hi';
 import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
 import { HiUserCircle } from 'react-icons/hi';
+import { HiGlobeAmericas } from 'react-icons/hi2';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -134,7 +135,7 @@ export default function Header() {
               {/* <DropdownMenu> sem funcionar ainda, Só para Fins de Estética */}
               <DropdownMenu>
                 <DropdownMenuTrigger>
-                  <HiOutlineGlobe size={38} />
+                  <HiGlobeAmericas size={38} className="text-white" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Idiomas</DropdownMenuLabel>

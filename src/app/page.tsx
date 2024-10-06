@@ -2,6 +2,7 @@
 import Header from '../components/header';
 import { useEffect } from 'react';
 import { useUsuarioStore } from '@/context/usuario';
+import { HiCheckBadge } from "react-icons/hi2";
 import Link from 'next/link';
 
 
@@ -30,7 +31,7 @@ export default function Home() {
       </header>
       <main>
       <section className='flex p-10 justify-evenly w-full  '>
-        <div className='flex flex-col gap-10 items-center'>
+        <div className='flex flex-col gap-10 items-center lg:pl-24 lg:pt-20'>
           <h1 className='text-center font-bold text-3xl'> Explore Novos Horizontes <br/> Linguísticos</h1>
           <p className='max-w-96 text-xl font-sans font-normal'>Bem-vindo à Verbalize, uma plataforma única onde falantes de diferentes línguas se conectam para ensinar e aprender uns com os outros. </p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
@@ -85,16 +86,16 @@ export default function Home() {
       </div>
       </section>
       <section id='planos' className='scroll-m-40 m-2 mb-10'>
-        <div className='bg-[#83768d] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
-        <h1 className='text-center font-sans text-white text-3xl mb-5'>Conheça as assinaturas</h1>
+        <div className='bg-[#625173] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
+        <h1 className='text-center font-sans text-white text-3xl mb-10'>Conheça as assinaturas</h1>
         <div className='flex flex-col gap-5 justify-around items-center xl:flex-row' >
         <div className='text-start text-white max-w bg-zinc-900 rounded-3xl p-12 flex flex-col gap-5 '>
           <h2 className='text-xl font-bold'>Verbalize Start</h2>
           <h3 className='text-2xl font-bold  '>R$19.90 /mês</h3>
-          <p className='text-sm'>Acesso a chats de texto com parceiros linguísticos.</p>
-          <p className='text-sm'>Suporte básico por e-mail.</p>
-          <p className='text-sm'>Histórico de mensagens armazenado por 30 dias.</p>
-          <p className='text-sm'>Acesso a chats de texto com parceiros linguísticos.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge />Acesso a chats de texto com parceiros linguísticos.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge />Suporte básico por e-mail.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge />Histórico de mensagens armazenado por 30 dias.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge />Acesso a chats de texto com parceiros linguísticos.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
             <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
@@ -104,10 +105,10 @@ export default function Home() {
         <div className='text-start text-white max-w bg-zinc-900 rounded-3xl p-12 flex flex-col gap-5 '>
           <h2 className='text-xl font-bold'>Verbalize Plus</h2>
           <h3 className='text-2xl font-bold  '>R$59.90 /mês</h3>
-          <p className='text-sm'>Todos os benefícios do plano Start.</p>
-          <p className='text-sm'>Suporte prioritário por e-mail.</p>
-          <p className='text-sm'>Histórico de mensagens ilimitado.</p>
-          <p className='text-sm'>Recurso de tradução automática embutido no chat.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge /> Todos os benefícios do plano Start.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge /> Suporte prioritário por e-mail.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge /> Histórico de mensagens ilimitado.</p>
+          <p className=' flex items-center gap-3 text-lg'><HiCheckBadge /> Recurso de tradução automática embutido no chat.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
             <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
