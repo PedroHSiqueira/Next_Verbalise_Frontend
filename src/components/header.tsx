@@ -91,8 +91,8 @@ export default function Header() {
               <ul className="flex justify-around p-4 px-6 mt-0 gap-36 font-medium">
                 <li>
                   <Link
-                    href="#"
-                    className="hidden py-2 px-3 text-white text-xs font-bold bg-blue-700 md:bg-transparent md:hover:text-[#B38000]  md:p-0 xl:block lg:text-sm xl:text-base"
+                    href="/informacoes"
+                    className="hidden py-2 px-3 text-white text-xs font-bold bg-blue-700 md:bg-transparent md:hover:text-[#B38000]  md:p-0 xl:block lg:text-sm xl:text-base 2xl:text-lg"
                     aria-current="page"
                   >
                     Porque escolher nós
@@ -100,16 +100,16 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="#"
-                    className="block py-2 px-3 text-white text-xs font-bold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]   lg:text-sm xl:text-base"
+                    href="/#planos"
+                    className="block py-2 px-3 text-white text-xs font-bold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000] lg:text-sm xl:text-base 2xl:text-lg"
                   >
                     Tornar-se um Cliente
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
-                    className="block py-2 px-3 text-white text-xs font-bold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  lg:text-sm xl:text-base"
+                    href="/sobre"
+                    className="block py-2 px-3 text-white text-xs font-bold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000] lg:text-sm xl:text-base 2xl:text-lg"
                   >
                     Sobre-nós
                   </Link>

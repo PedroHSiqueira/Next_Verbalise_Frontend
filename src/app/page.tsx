@@ -84,7 +84,7 @@ export default function Home() {
         </div>
       </div>
       </section>
-      <section className='m-2 mb-10'>
+      <section id='planos' className='scroll-m-40 m-2 mb-10'>
         <div className='bg-[#83768d] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
         <h1 className='text-center font-sans text-white text-3xl mb-5'>Conheça as assinaturas</h1>
         <div className='flex flex-col gap-5 justify-around items-center xl:flex-row' >
