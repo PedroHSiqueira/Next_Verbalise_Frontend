@@ -31,7 +31,7 @@ export default function Header() {
     <nav className="font-sans bg-gradient-to-r bg-[#625173] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] fixed w-screen z-20 top-0">
       <div className="w-screen flex items-center justify-between px-2 p-4 lg:px-6 xl:px-10">
         <a
-          href="#"
+          href="/"
           className="flex justify-center items-center flex-col space-x-3 rtl:space-x-reverse"
         >
           <img src="/logos/Logo_preta.png" className="h-12" />
