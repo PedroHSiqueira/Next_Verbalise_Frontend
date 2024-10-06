@@ -24,7 +24,8 @@ export default function Header() {
     if (localStorage.getItem('client_key')) {
       localStorage.removeItem('client_key');
     }
-    router.push('/login');
+    router.push('/');
+    window.location.reload();
   }
 
   return (
