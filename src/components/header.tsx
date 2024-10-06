@@ -3,7 +3,6 @@ import Link from 'next/link';
 import '/node_modules/flag-icons/css/flag-icons.min.css';
 import { useUsuarioStore } from '@/context/usuario';
 import { useRouter } from 'next/navigation';
-import { HiOutlineGlobe } from 'react-icons/hi';
 import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
 import { HiUserCircle } from 'react-icons/hi';
