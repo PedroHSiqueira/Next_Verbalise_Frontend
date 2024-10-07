@@ -7,6 +7,7 @@ import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
 import { HiUserCircle } from 'react-icons/hi';
 import { HiGlobeAmericas } from 'react-icons/hi2';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -69,7 +70,12 @@ export default function Header() {
                   href="/perfil"
                   className="flex items-center mt-2 justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  <HiUserCircle size={38} />
+                  {/* <HiUserCircle size={38} /> */}
+                  <Avatar>
+                    <AvatarImage src={usuario.foto} />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+
                   {usuario.nome}
                 </Link>
               </li>

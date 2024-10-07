@@ -33,7 +33,7 @@ export default function Perfil() {
         <Header />
       </header>
       <main className="mx-20">
-        <section className="flex mb-14 flex-col xl:flex-row lg:gap-10 lg:mb-10">
+        <section className="flex mb-14 flex-col md:flex-row lg:gap-10 lg:mb-10">
           <img src={usuario.foto} className='rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' />
           <div className="flex flex-col gap-5 items-center justify-center">
             <div className="flex justify-center items-center gap-10">
@@ -72,7 +72,7 @@ export default function Perfil() {
             </p>
           </div>
         </section>
-        <section className='mb-10'>
+        <section className='mb-14'>
           <h2 className='flex items-center mb-2 gap-2 text-xl font-bold'>
             Destaques <BiTrophy size={26} color='#b38000' />
           </h2>
