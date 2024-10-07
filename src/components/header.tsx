@@ -29,7 +29,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="font-sans bg-gradient-to-r bg-[#625173] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] fixed w-screen z-20 top-0">
+    <nav className="font-sans bg-gradient-to-r bg-[#625173] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] fixed w-screen z-20 top-0">
       <div className="w-screen flex items-center justify-between px-2 p-4 lg:px-6 xl:px-10">
         <a
           href="/"
@@ -70,7 +70,7 @@ export default function Header() {
                   className="flex items-center mt-2 justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   <HiUserCircle size={38} />
-                  Perfil
+                  {usuario.nome}
                 </Link>
               </li>
               <li>

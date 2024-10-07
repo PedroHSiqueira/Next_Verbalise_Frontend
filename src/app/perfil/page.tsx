@@ -33,23 +33,23 @@ export default function Perfil() {
         <Header />
       </header>
       <main className="mx-20">
-        <section className="flex mb-14 flex-col lg:flex-row lg:mb-0">
-          <HiUserCircle size={240}/>
+        <section className="flex mb-14 flex-col xl:flex-row lg:gap-10 lg:mb-10">
+          <img src={usuario.foto} className='rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' />
           <div className="flex flex-col gap-5 items-center justify-center">
             <div className="flex justify-center items-center gap-10">
               <h1 className="text-2xl font-bold">{usuario.nome}</h1>
               <Link
                 href={'#'}
                 type="button"
-                className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-black font-boldp-2 rounded-3xl border-2 border-[#b38000] hover:bg-[#B38000] focus:ring-4 focus:outline-none text-xl text-center "
+                className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-black font-bold p-2 rounded-3xl border-2 border-[#b38000] hover:bg-[#B38000] focus:ring-4 focus:outline-none text-xl text-center "
               >
-                Editar Perfil
+                Editar
               </Link>
             </div>
             <div className="flex text-sm gap-10 md:text-base">
               <div>
                 <h2 className="text-center">
-                  {(usuario.idade as number) || 0}
+                  {usuario.idade as number}
                 </h2>
                 <h2>Idade</h2>
               </div>
@@ -58,7 +58,7 @@ export default function Perfil() {
                 <h2>Genero</h2>
               </div>
               <div>
-                <h2 className='text-center'>{usuario.nacionalidade || 'Nulo'}</h2>
+                <h2 className='text-center'>{usuario.nacionalidade}</h2>
                 <h2>Nacionalidade</h2>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function Perfil() {
         </section>
         <section className="w-screen mb-10">
           <h2 className='text-xl font-bold'>Sobre mim</h2>
-          <div className="bg-slate-100 p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
+          <div className="bg-gray-200 p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
             <p className="">
               {usuario.descricao || "Adicione uma descrição sobre você"}
             </p>
