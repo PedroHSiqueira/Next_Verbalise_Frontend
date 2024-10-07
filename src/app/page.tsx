@@ -97,7 +97,7 @@ export default function Home() {
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' />Histórico de mensagens armazenado por 30 dias.</p>
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' />Acesso a chats de texto com parceiros linguísticos.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+            <Link href={'#'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
             </Link>
           </div>
@@ -110,7 +110,7 @@ export default function Home() {
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' /> Histórico de mensagens ilimitado.</p>
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' /> Recurso de tradução automática embutido no chat.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+            <Link href={'#'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
             </Link>
           </div>
