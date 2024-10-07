@@ -66,7 +66,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/perfil"
                   className="flex items-center mt-2 justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   <HiUserCircle size={38} />

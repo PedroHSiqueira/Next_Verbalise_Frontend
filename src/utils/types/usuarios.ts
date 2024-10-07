@@ -2,6 +2,7 @@ export interface UsuarioI {
   id: string;
   nome: string;
   idade: Number;
+  email: string;
   nacionalidade: string;
   descricao: string;
   foto: string;
