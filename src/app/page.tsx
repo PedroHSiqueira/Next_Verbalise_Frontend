@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useUsuarioStore } from '@/context/usuario';
 import { HiCheckBadge } from "react-icons/hi2";
 import Link from 'next/link';
+import Banner from '@/components/ui/banner';
 
 
 export default function Home() {
@@ -26,18 +27,18 @@ export default function Home() {
   });
   return (
     <div>
-      <header className="mt-32">
+      <header>
         <Header />
       </header>
       <main>
+        <section>
+          <Banner />
+        </section>
       <section className='flex p-10 justify-evenly w-full  '>
         <div className='flex flex-col gap-10 items-center lg:pl-24 lg:pt-20'>
           <h1 className='text-center font-bold text-3xl'> Explore Novos Horizontes <br/> Linguísticos</h1>
           <p className='max-w-96 text-xl font-sans font-normal xl:text-2xl'>Bem-vindo à Verbalize, uma plataforma única onde falantes de diferentes línguas se conectam para ensinar e aprender uns com os outros. </p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="px-12 py-4 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-base text-center ">
-              Comece Agora
-            </Link>
           </div>
         </div>
         <img src="./landingPage/computador.png" className='hidden w-2/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block lg:ml-40' />
@@ -97,7 +98,7 @@ export default function Home() {
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' />Histórico de mensagens armazenado por 30 dias.</p>
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' />Acesso a chats de texto com parceiros linguísticos.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+            <Link href={'/registro'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
             </Link>
           </div>
@@ -110,7 +111,7 @@ export default function Home() {
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' /> Histórico de mensagens ilimitado.</p>
           <p className=' flex items-center gap-3 text-lg'><HiCheckBadge className='hidden xl:block' /> Recurso de tradução automática embutido no chat.</p>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
-            <Link href={'#'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
+            <Link href={'/registro'} type="button" className="hover:scale-110 px-4 py-1 transition delay-150 duration-300 ease-in-out text-white font-bold bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none rounded-3xl text-xl text-center ">
               Compre Agora
             </Link>
           </div>
