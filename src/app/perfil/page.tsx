@@ -35,8 +35,8 @@ export default function Perfil() {
       <main className="mx-20">
         <section className="flex mb-14 flex-col md:flex-row lg:gap-10 lg:mb-10">
           <img src={usuario.foto} className='rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' />
-          <div className="flex flex-col gap-5 items-center justify-center">
-            <div className="flex justify-center items-center gap-10">
+          <div className="flex flex-col gap-5 justify-center">
+            <div className="flex items-center gap-10">
               <h1 className="text-2xl font-bold">{usuario.nome}</h1>
               <Link
                 href={'#'}
@@ -46,7 +46,7 @@ export default function Perfil() {
                 Editar
               </Link>
             </div>
-            <div className="flex text-sm gap-10 md:text-base">
+            <div className="flex text-center flex-col text-sm gap-10 md:text-base lg:flex-row lg:text-start">
               <div>
                 <h2 className="text-center">
                   {usuario.idade as number}
@@ -65,10 +65,10 @@ export default function Perfil() {
           </div>
         </section>
         <section className="w-screen mb-10">
-          <h2 className='text-xl font-bold'>Sobre mim</h2>
+          <h2 className='text-xl font-bold mb-2'>Sobre mim</h2>
           <div className="bg-gray-200 p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
             <p className="">
-              {usuario.descricao || "Adicione uma descrição sobre você"}
+              {usuario.descricao || "Adicione uma descrição sobre você ..."}
             </p>
           </div>
         </section>
@@ -87,7 +87,7 @@ export default function Perfil() {
             </div>
             <div>
               <h2 className='flex items-center gap-2 my-2'>Sessões Concluidas <GrTask size={18} /></h2>
-              <h2 className='text-centerp-2 p-2 rounded-3xl border-2 border-[#b38000]'>{usuario.sessoesTotais as number || 0} Sessões Concluidas </h2>
+              <h2 className='text-center p-2 rounded-3xl border-2 border-[#b38000]'>{usuario.sessoesTotais as number || 0} Sessões Concluidas </h2>
             </div>
           </div>
         </section>
