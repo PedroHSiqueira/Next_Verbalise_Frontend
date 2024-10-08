@@ -1,11 +1,10 @@
 'use client';
-import Link from 'next/link';
 import '/node_modules/flag-icons/css/flag-icons.min.css';
+import Link from 'next/link';
 import { useUsuarioStore } from '@/context/usuario';
 import { useRouter } from 'next/navigation';
 import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
-import { HiUserCircle } from 'react-icons/hi';
 import { HiGlobeAmericas } from 'react-icons/hi2';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {

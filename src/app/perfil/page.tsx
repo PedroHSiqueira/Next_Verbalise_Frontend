@@ -1,8 +1,8 @@
 'use client';
-import Header from '@/components/header';
-import { HiUserCircle } from 'react-icons/hi';
-import { useUsuarioStore } from '@/context/usuario';
+import Image from 'next/image';
 import Link from 'next/link';
+import Header from '@/components/header';
+import { useUsuarioStore } from '@/context/usuario';
 import { useEffect } from 'react';
 import { BiTrophy } from 'react-icons/bi';
 import { FaRegClock } from "react-icons/fa";
@@ -26,7 +26,7 @@ export default function Perfil() {
       const usuarioValor = usuarioSalvo.replace(/"/g, '');
       buscaUsuarios(usuarioValor);
     }
-  });
+  },[]);
   return (
     <div>
       <header className="mt-32">
@@ -34,7 +34,7 @@ export default function Perfil() {
       </header>
       <main className="mx-20">
         <section className="flex mb-14 flex-col md:flex-row lg:gap-10 lg:mb-10">
-          <img src={usuario.foto} className='rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' />
+          <Image alt='avatar icon' width={215} height={215} src={usuario.foto} className='rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]' />
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex items-center gap-10">
               <h1 className="text-2xl font-bold">{usuario.nome}</h1>

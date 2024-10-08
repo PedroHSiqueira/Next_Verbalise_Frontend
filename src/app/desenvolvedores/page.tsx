@@ -1,9 +1,8 @@
 'use client';
 import Header from '@/components/header';
-import { useUsuarioStore } from '@/context/usuario';
 import Link from 'next/link';
+import { useUsuarioStore } from '@/context/usuario';
 import { useEffect } from 'react';
-import { HiCheckBadge } from 'react-icons/hi2';
 
 export default function Home() {
   const { usuario, logar } = useUsuarioStore();
@@ -22,7 +21,7 @@ export default function Home() {
       const usuarioValor = usuarioSalvo.replace(/"/g, '');
       buscaUsuarios(usuarioValor);
     }
-  });
+  },[]);
   return (
     <div>
       <header className="mt-52">

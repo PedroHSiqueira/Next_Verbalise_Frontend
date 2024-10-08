@@ -1,6 +1,5 @@
 import Header from "@/components/header"
 import { Skeleton } from "@/components/ui/skeleton"
-import Link from "next/link"
 import { FaRegClock } from "react-icons/fa"
 import { GrTask } from "react-icons/gr"
 import { MdOutlineMessage } from "react-icons/md"
