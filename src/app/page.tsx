@@ -1,6 +1,6 @@
 'use client';
 import Header from '../components/header';
-import Banner from '@/components/ui/banner';
+import Banner from '@/components/banner';
 import Image from 'next/image';
 import Subscriptions from '@/components/subscriptions';
 import { useEffect } from 'react';
@@ -79,9 +79,9 @@ export default function Home() {
       <section className='p-10 mb-52'>
       <h1 className='text-center text-3xl font-bold mb-10'>Pronto para Começar? <span className='text-red-500 font-bold '>Inscreva-se Hoje!</span> </h1>
       <div className='flex items-center justify-around'>
-      <Image alt='criança' width={377} height={226} className='hidden w-2/5 max-h-96 rounded-[2.1rem] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block' src="/landingPage/menina.png" />
+      <Image alt='criança' width={377} height={226} className='hidden w-2/6 max-h-96 rounded-[2.1rem] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block' src="/landingPage/menina.png" />
         <div className='flex items-center'>
-          <p className='max-w-lg text-xl font-sans font-normal xl:mr-28 xl:text-2xl'>Descubra o poder das conversas reais e faça parte de uma comunidade global de aprendizado. Com a Verbalize, você pode aprender um novo idioma de maneira autêntica, enquanto ensina sua própria língua. É simples, interativo e eficaz.
+          <p className='max-w-lg text-xl font-sans font-normal xl:mr-28 xl:text-2xl xl:max-w-xl'>Descubra o poder das conversas reais e faça parte de uma comunidade global de aprendizado. Com a Verbalize, você pode aprender um novo idioma de maneira autêntica, enquanto ensina sua própria língua. É simples, interativo e eficaz.
           </p>
         </div>
       </div>

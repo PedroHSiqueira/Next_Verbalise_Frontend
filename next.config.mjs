@@ -7,7 +7,8 @@ const nextConfig = {
                 hostname: "encrypted-tbn0.gstatic.com"
             }
         ]
-    }
+    },
+    "reactStrictMode": false,
 };
 
 export default nextConfig;
