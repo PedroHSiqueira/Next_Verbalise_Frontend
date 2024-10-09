@@ -28,9 +28,9 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <Link href={'/termos'} className="hover:underline">
                     Termos de Uso
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -45,9 +45,9 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <Link href={'/seguranca'} className="hover:underline">
                     Segurança
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -57,9 +57,9 @@ export default function Footer() {
               </h2>
               <ul className="text-white dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <Link href={'/privacidade'} className="hover:underline">
                     Privacidade
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
