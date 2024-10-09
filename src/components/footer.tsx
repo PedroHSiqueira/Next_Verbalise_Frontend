@@ -10,7 +10,6 @@ export default function Footer() {
               <img
                 src="./logos/logo_branca.png"
                 className="h-16 "
-                alt="FlowBite Logo"
               />
               <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
                 Verbalize

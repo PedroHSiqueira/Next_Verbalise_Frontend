@@ -65,7 +65,7 @@ export default function login() {
   return (
     <div className="flex justify-center items-center flex-col gap-5 bg-[#0B0F18] w-screen h-screen">
       <Link href={'/'} className="flex flex-col items-center justify-center">
-      <img src="./landingPage/logo_branca.png" alt="Logo" />
+      <img src="./logos/logo_branca.png" alt="Logo" />
         <span className="p-0 pr-2 text-[#B38000]  elf-center text-2xl font-semibold whitespace-nowrap">
           Verbalize
         </span>
