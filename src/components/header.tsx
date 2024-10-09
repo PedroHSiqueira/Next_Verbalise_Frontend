@@ -16,12 +16,11 @@ export default function Header() {
   const { usuario, deslogar } = useUsuarioStore();
   const router = useRouter();
   function sairCliente() {
+    router.push('/');
     deslogar();
     if (localStorage.getItem('client_key')) {
       localStorage.removeItem('client_key');
     }
-    router.push('/');
-    window.location.reload();
   }
 
   return (
