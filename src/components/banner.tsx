@@ -24,7 +24,7 @@ export default function Banner() {
           <div className="flex flex-col w-1/2 items-center justify-center md:w-[14%] lg:w-[8%] lg:gap-2 ">
             <img
               className="hover:scale-110 transition delay-150 duration-300 ease-in-out shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] rounded-full"
-              src="./Bandeiras/brazil.png"
+              src="./Bandeiras/arabic.png"
             />
           </div>
 
