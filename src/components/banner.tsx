@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { FaPlus } from 'react-icons/fa';
 export default function Banner() {
   return (
-    <div className="bg-[#7445a3] p-28 pt-32 pb-20 font-poppins flex justify-around flex-col lg:flex-row items-center ">
+    <div className="bg-[#693f94] p-28 pt-32 pb-20 font-poppins flex justify-around flex-col lg:flex-row items-center ">
       <img src="/LandingPage/dell.png" className="hidden w-2/5 lg:block" />
       <section className="p-10 flex flex-col items-center ">
         <h1 className="text-center font-bold text-3xl pb-5 text-white">

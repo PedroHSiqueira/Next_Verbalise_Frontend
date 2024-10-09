@@ -4,7 +4,7 @@ import { HiCheckBadge } from "react-icons/hi2";
 export default function Subscriptions() {
     return (
         <section id='planos' className='scroll-m-40 m-2 mb-10'>
-        <div className='bg-[#7445a3] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
+        <div className='bg-[#693f94] p-10 rounded-3xl pb-20 font-poppins lg:mx-20 xl:mx-25'>
         <h1 className='text-center font-sans text-white text-3xl mb-10'>Conheça as assinaturas</h1>
         <div className='flex flex-col gap-5 justify-around items-center xl:flex-row' >
         <div className='text-start text-white max-w bg-zinc-900 rounded-3xl p-12 flex flex-col gap-5 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] '>

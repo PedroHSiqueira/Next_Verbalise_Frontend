@@ -29,7 +29,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="font-sans bg-gradient-to-r bg-[#7445a3] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] fixed w-screen z-20 top-0">
+    <nav className="font-sans bg-gradient-to-r bg-[#693f94] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] fixed w-screen z-20 top-0">
       <div className="w-screen flex items-center justify-between px-2 lg:px-6 xl:px-10">
         <a
           href="/"
