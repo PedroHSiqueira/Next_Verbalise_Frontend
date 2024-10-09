@@ -74,19 +74,19 @@ export default function Perfil() {
         </section>
         <section className='mb-14'>
           <h2 className='flex items-center mb-2 gap-2 text-xl font-bold'>
-            Destaques <BiTrophy size={26} color='#b38000' />
+            Destaques
           </h2>
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
-              <h2 className='flex items-center gap-2 my-2'>Tempo de Uso <FaRegClock size={18} /></h2>
+              <h2 className='flex items-center gap-2 my-2'>Tempo de Uso</h2>
               <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{(usuario.tempoDeUso as number) || 0} Horas</h2>
             </div>
             <div>
-              <h2 className='flex items-center gap-2 my-2' >Mensagens Trocadas <MdOutlineMessage size={18} /></h2>
+              <h2 className='flex items-center gap-2 my-2' >Mensagens Trocadas</h2>
               <h2 className='text-center p-2 rounded-3xl border-2 border-[#b38000]'>{usuario.mensagensTotais as number || 0} Mensagens</h2>
             </div>
             <div>
-              <h2 className='flex items-center gap-2 my-2'>Sessões Concluidas <GrTask size={18} /></h2>
+              <h2 className='flex items-center gap-2 my-2'>Sessões Concluidas</h2>
               <h2 className='text-center p-2 rounded-3xl border-2 border-[#b38000]'>{usuario.sessoesTotais as number || 0} Sessões Concluidas </h2>
             </div>
           </div>

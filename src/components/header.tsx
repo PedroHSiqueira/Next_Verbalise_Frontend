@@ -1,5 +1,4 @@
 'use client';
-import '/node_modules/flag-icons/css/flag-icons.min.css';
 import Link from 'next/link';
 import { useUsuarioStore } from '@/context/usuario';
 import { useRouter } from 'next/navigation';
@@ -8,14 +7,6 @@ import { HiUserGroup } from 'react-icons/hi';
 import { HiGlobeAmericas } from 'react-icons/hi2';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { JetBrains_Mono } from 'next/font/google'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 const jetbrains = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
@@ -141,26 +132,6 @@ export default function Header() {
               >
                 Login
               </Link>
-              {/* <DropdownMenu> sem funcionar ainda, Só para Fins de Estética */}
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <HiGlobeAmericas size={38} className="text-white" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>Idiomas</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem className="flex items-center gap-2">
-                    <span className="fi fi-br" /> Português
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="flex items-center gap-2">
-                    <span className="fi fi-us" /> Inglês
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="flex items-center gap-2">
-                    <span className="fi fi-es" />
-                    Espanhol
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
             </div>
           </>
         )}

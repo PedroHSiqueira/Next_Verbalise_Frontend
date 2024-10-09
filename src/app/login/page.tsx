@@ -117,7 +117,7 @@ export default function login() {
             htmlFor="remember"
             className="ms-2 text-sm font-medium text-gray-300"
           >
-            Lembrar-se De Mim
+            Lembrar-se
           </label>
         </div>
         <button

@@ -1,7 +1,7 @@
 'use client';
+import Image from 'next/image';
 import Header from '../components/header';
 import Banner from '@/components/banner';
-import Image from 'next/image';
 import Subscriptions from '@/components/subscriptions';
 import { useEffect } from 'react';
 import { useUsuarioStore } from '@/context/usuario';
