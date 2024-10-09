@@ -17,7 +17,7 @@ type Inputs = {
 
 export default function login() {
   const { register, handleSubmit } = useForm<Inputs>();
-  const { usuario, logar } = useUsuarioStore();
+  const { logar } = useUsuarioStore();
   const { toast } = useToast();
   const router = useRouter();
 

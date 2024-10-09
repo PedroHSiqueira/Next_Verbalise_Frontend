@@ -57,7 +57,7 @@ export default function Header() {
                   href="/"
                   className="flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-base rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  <HiUserGroup size={38} />
+                  <HiUserGroup size={38} className='text-black' />
                   Comunidades
                 </Link>
               </li>
@@ -66,14 +66,14 @@ export default function Header() {
                   href="/"
                   className=" flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  <HiAnnotation size={38} />
+                  <HiAnnotation size={38} className='text-black' />
                   Mensagens
                 </a>
               </li>
               <li>
                 <Link
                   href="/perfil"
-                  className="flex items-center mt-2 justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="flex items-center mt-2 justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:text-[#B38000] hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   <Avatar>
                     <AvatarImage src={usuario.foto} />

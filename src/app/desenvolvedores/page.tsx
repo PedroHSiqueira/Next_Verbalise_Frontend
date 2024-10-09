@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const { usuario, logar } = useUsuarioStore();
+  const { logar } = useUsuarioStore();
   useEffect(() => {
     async function buscaUsuarios(idUsuario: string) {
       const response = await fetch(
@@ -34,7 +34,7 @@ export default function Home() {
         <Header />
       </header>
       <main className="mb-32">
-        <div className={`bg-[#625173] grid-10 rounded-3xl pb-20 ${poppins.className} shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:mx-20 xl:mx-25 `}>
+        <div className={`bg-[#693f94] grid-10 rounded-3xl pb-20 ${poppins.className} shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:mx-20 xl:mx-25 `}>
           <h1 className="text-center text-white text-4xl font-bold pt-5">
             Desenvolvedores
           </h1>
