@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="mb-6 md:mb-0 ">
             <a href="#" className="items-center flex flex-col">
               <img
-                src="./logos/logo_branca.png"
+                src="./logos/logo2.png"
                 className="h-16 "
                 alt="FlowBite Logo"
               />
