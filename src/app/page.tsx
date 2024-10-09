@@ -73,7 +73,7 @@ export default function Home() {
               <p className='text-center font-black text-xl'>Japonês</p>
             </div>
           </div>
-          <Image className='hidden w-2/5 max-h-96 rounded-[2.1rem] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block' src="/landingPage/linguas.png" alt='Paises' width={380} height={280}/>
+          <Image className='hidden w-2/5 max-h-96 rounded-[2.1rem] border-8 border-[#716C6D] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] lg:block lg:w-2/6 lg:mr-20' src="/landingPage/globo.jpg" alt='Paises' width={380} height={280}/>
         </div>
       </section>
       <section className='p-10 mb-52'>

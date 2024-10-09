@@ -41,9 +41,9 @@ export default function Footer() {
               </h2>
               <ul className="text-white dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline ">
+                  <Link href={'./registro'} className="hover:underline ">
                     Cadastre-se
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
