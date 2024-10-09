@@ -3,6 +3,12 @@ import Header from '@/components/header';
 import Link from 'next/link';
 import { useUsuarioStore } from '@/context/usuario';
 import { useEffect } from 'react';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 
 export default function Home() {
   const { usuario, logar } = useUsuarioStore();
@@ -28,7 +34,7 @@ export default function Home() {
         <Header />
       </header>
       <main className="mb-32">
-        <div className="bg-[#625173] grid-10 rounded-3xl pb-20 font-poppins shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:mx-20 xl:mx-25 ">
+        <div className={`bg-[#625173] grid-10 rounded-3xl pb-20 ${poppins.className} shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:mx-20 xl:mx-25 `}>
           <h1 className="text-center text-white text-4xl font-bold pt-5">
             Desenvolvedores
           </h1>

@@ -7,6 +7,7 @@ import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
 import { HiGlobeAmericas } from 'react-icons/hi2';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { JetBrains_Mono } from 'next/font/google'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +16,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+
+const jetbrains = JetBrains_Mono({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 
 export default function Header() {
   const { usuario, deslogar } = useUsuarioStore();
@@ -36,7 +42,7 @@ export default function Header() {
           className="flex justify-center items-center flex-col space-x-3 rtl:space-x-reverse"
         >
           <img src="/logos/Logo_preta.png" className="h-10" />
-          <span className=" font-jetbrains p-0 pr-2  elf-center text-lg font-semibold whitespace-nowrap text-white">
+          <span className={`${jetbrains.className} p-0 pr-2  elf-center text-lg font-semibold whitespace-nowrap text-white`}>
             Verbalize
           </span>
         </a>
