@@ -4,13 +4,19 @@ import Link from 'next/link';
 import Header from '@/components/header';
 import { useUsuarioStore } from '@/context/usuario';
 import { useEffect } from 'react';
-import { BiTrophy } from 'react-icons/bi';
-import { FaRegClock } from "react-icons/fa";
-import { MdOutlineMessage } from "react-icons/md";
-import { GrTask } from "react-icons/gr";
 
 export default function Perfil() {
   const { usuario, logar } = useUsuarioStore();
+  let genero;
+
+  if(usuario.genero == "HOMEM"){
+    genero = "H";
+  }else if(usuario.genero == "MULHER"){
+    genero = "M";
+  }else{
+    genero = "NAO_INFORMADO";
+  }
+
   useEffect(() => {
     async function buscaUsuarios(idUsuario: string) {
       const response = await fetch(
@@ -48,17 +54,17 @@ export default function Perfil() {
             </div>
             <div className="flex text-center flex-col text-sm gap-10 md:text-base lg:flex-row lg:text-start">
               <div>
-                <h2 className="text-center">
+                <h2 className="text-center font-semibold">
                   {usuario.idade as number}
                 </h2>
                 <h2>Idade</h2>
               </div>
               <div>
-                <h2 className='text-center'>{usuario.genero}</h2>
+                <h2 className='text-center font-semibold'>{genero}</h2>
                 <h2>Genero</h2>
               </div>
               <div>
-                <h2 className='text-center'>{usuario.nacionalidade}</h2>
+                <h2 className='text-center font-semibold'>{usuario.nacionalidade}</h2>
                 <h2>Nacionalidade</h2>
               </div>
             </div>
@@ -66,7 +72,7 @@ export default function Perfil() {
         </section>
         <section className="w-screen mb-10">
           <h2 className='text-xl font-bold mb-2'>Sobre mim</h2>
-          <div className="bg-gray-200 p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
+          <div className="bg-white p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
             <p className="">
               {usuario.descricao || "Adicione uma descrição sobre você ..."}
             </p>
@@ -88,6 +94,16 @@ export default function Perfil() {
             <div>
               <h2 className='flex items-center gap-2 my-2'>Sessões Concluidas</h2>
               <h2 className='text-center p-2 rounded-3xl border-2 border-[#b38000]'>{usuario.sessoesTotais as number || 0} Sessões Concluidas </h2>
+            </div>
+          </div>
+        </section>
+        <section className='mb-14'>
+          <h2 className='flex items-center mb-2 gap-2 text-xl font-bold'>
+            Linguas Fluentes
+          </h2>
+          <div className="flex flex-col gap-10 md:flex-row">
+            <div>
+              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{(usuario.linguaMaterna as string) || "Aguardando"}</h2>
             </div>
           </div>
         </section>
