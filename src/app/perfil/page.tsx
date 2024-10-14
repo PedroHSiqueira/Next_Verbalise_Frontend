@@ -107,6 +107,16 @@ export default function Perfil() {
             </div>
           </div>
         </section>
+        <section className='mb-14'>
+          <h2 className='flex items-center mb-2 gap-2 text-xl font-bold'>
+            Linguas De interrese
+          </h2>
+          <div className="flex flex-col gap-10 md:flex-row">
+            <div>
+              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{(usuario.idiomasInterresse as string[]) || "Aguardando"}</h2>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
