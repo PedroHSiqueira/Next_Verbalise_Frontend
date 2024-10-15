@@ -3,10 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/header';
 import { useUsuarioStore } from '@/context/usuario';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { IdiomaUsuarioI } from '@/utils/types/idiomaUsuario';
+import ItemLanguage from '@/components/itemLanguage';
 
 export default function Perfil() {
   const { usuario, logar } = useUsuarioStore();
+  const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   let genero;
 
   if (usuario.genero == 'HOMEM') {
@@ -32,7 +35,22 @@ export default function Perfil() {
       const usuarioValor = usuarioSalvo.replace(/"/g, '');
       buscaUsuarios(usuarioValor);
     }
+
+    async function getLinguas() {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL_API}/idiomasUsuarios/${usuario.id}`,
+      );
+      if (response.status == 200) {
+        const dados = await response.json();
+        setLinguas(dados);
+      }
+    }
+    getLinguas();
   }, []);
+
+  const listaLinguas = linguas.map((lingua) => (
+    <ItemLanguage key={lingua.id} data={lingua} />
+  ));
 
   return (
     <div>
@@ -132,6 +150,7 @@ export default function Perfil() {
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">
             Linguas De interrese
           </h2>
+          <div className="flex flex-col gap-10 md:flex-row">{listaLinguas}</div>
         </section>
       </main>
     </div>
