@@ -148,7 +148,7 @@ export default function Perfil() {
         </section>
         <section className="mb-14">
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">
-            Linguas De interrese
+            Linguas De interesse
           </h2>
           <div className="flex flex-col gap-10 md:flex-row">{listaLinguas}</div>
         </section>
