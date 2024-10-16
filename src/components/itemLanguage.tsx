@@ -2,9 +2,9 @@ import { IdiomaUsuarioI } from "@/utils/types/idiomaUsuario";
 
 export default function ItemLanguage({data}: {data: IdiomaUsuarioI}) {
     let lingua;
-    if(data.idiomaId == 1) {
+    if(data.idiomaId == 3) {
         lingua = 'Inglês - US';
-    }else if(data.idiomaId == 2) {
+    }else if(data.idiomaId == 4) {
         lingua = 'Português - BR';
     }else{
         lingua = 'Aguardando dados';
