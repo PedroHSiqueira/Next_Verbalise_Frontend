@@ -60,7 +60,7 @@ export default function Registro() {
           Verbalize
         </span>
       </Link>
-      <form className="w-2/6" onSubmit={handleSubmit(verificaCadastro)}>
+      <form className='md:w-2/6' onSubmit={handleSubmit(verificaCadastro)}>
         <label
           htmlFor="input-group-1"
           className="block mb-2 text-sm font-medium text-white"
