@@ -7,7 +7,7 @@ export interface UsuarioI {
   descricao: string;
   foto: string;
   genero: string;
-  linguaMaterna: string;
+  linguaMaternaId: Number;
   idiomasInterresse: string[];
   tempoDeUso: Number;
   mensagensTotais: Number;

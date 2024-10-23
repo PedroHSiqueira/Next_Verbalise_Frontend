@@ -3,7 +3,7 @@ import { UsuarioI } from "./usuarios";
 
 export interface IdiomaUsuarioI {
     id: string;
-    idiomaId: number;
+    linguaMaternaId: number;
     idioma: IdiomaI;
     usuario: UsuarioI;
   }

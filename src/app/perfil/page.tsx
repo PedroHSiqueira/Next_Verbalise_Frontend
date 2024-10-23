@@ -27,6 +27,7 @@ export default function Perfil() {
       );
       if (response.status === 200) {
         const dados = await response.json();
+        console.log(dados);
         logar(dados);
       }
     }
@@ -51,6 +52,15 @@ export default function Perfil() {
   const listaLinguas = linguas.map((lingua) => (
     <ItemLanguage key={lingua.id} data={lingua} />
   ));
+
+  let lingua;
+  if (usuario.linguaMaternaId == 2) {
+    lingua = 'Inglês - US';
+  } else if (usuario.linguaMaternaId == 1) {
+    lingua = 'Português - BR';
+  } else {
+    lingua = 'Aguardando dados';
+  }
 
   return (
     <div>
@@ -141,17 +151,21 @@ export default function Perfil() {
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
               <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
-                {(usuario.linguaMaterna as string) || 'Aguardando'}
+                {(lingua as string) || 'Aguardando'}
               </h2>
             </div>
           </div>
         </section>
-        <section className="mb-14">
-          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">
-            Linguas De interesse
-          </h2>
-          <div className="flex flex-col gap-10 md:flex-row">{listaLinguas}</div>
-        </section>
+        {linguas.length > 0 && (
+          <section className="mb-14">
+            <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">
+              Linguas De interesse
+            </h2>
+            <div className="flex flex-col gap-10 md:flex-row">
+              {listaLinguas}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );
