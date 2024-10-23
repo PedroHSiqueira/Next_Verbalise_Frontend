@@ -4,19 +4,9 @@ import '/node_modules/flag-icons/css/flag-icons.min.css';
 export default function ItemLanguage({ data }: { data: IdiomaUsuarioI }) {
   let lingua;
   if (data.idiomaId == 3) {
-    lingua = (
-      <div className='flex items-center justify-center gap-3'>
-        <p>Inglês</p>
-        <span className="fi fi-us"></span>
-      </div>
-    );
+    lingua = "Inglês - US";
   } else if (data.idiomaId == 4) {
-    lingua = (
-      <div className='flex items-center justify-center gap-3'>
-        <p>Português</p>
-        <span className="fi fi-br"></span>
-      </div>
-    );
+    lingua =  "Português - BR"
   } else {
     lingua = 'Aguardando dados';
   }
