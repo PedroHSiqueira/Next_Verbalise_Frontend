@@ -3,10 +3,10 @@ import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 export default function ItemLanguage({ data }: { data: IdiomaUsuarioI }) {
   let lingua;
-  if (data.linguaMaternaId == 3) {
-    lingua = "Inglês - US";
-  } else if (data.linguaMaternaId == 4) {
-    lingua =  "Português - BR"
+  if (data.idiomaId == 1) {
+    lingua = "Português - BR";
+  } else if (data.idiomaId == 4) {
+    lingua =  "Inglês - US";
   } else {
     lingua = 'Aguardando dados';
   }
