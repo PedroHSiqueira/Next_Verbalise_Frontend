@@ -14,7 +14,7 @@ export default function Banner() {
       <Image alt="dell" width={672} height={630} src="/logos/dell.png" className="hidden w-2/5 lg:block" />
       <section className="p-10 flex flex-col items-center ">
         <h1 className="text-center font-bold text-3xl pb-5 text-white">
-          Intercambio Linguístico
+          Intercâmbio Linguístico
         </h1>
         <h1 className="text-center font-semibold text-1xl pb-5 text-white">
           Aprenda um idioma conversando com falantes nativos e estudantes do

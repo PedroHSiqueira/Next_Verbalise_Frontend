@@ -107,7 +107,7 @@ const idadeConvertida = Math.abs(calculaIdade(usuario.nascimento));
               </div>
               <div>
                 <h2 className="text-center font-semibold">{genero}</h2>
-                <h2>Genero</h2>
+                <h2>Gênero</h2>
               </div>
               <div>
                 <h2 className="text-center font-semibold">
