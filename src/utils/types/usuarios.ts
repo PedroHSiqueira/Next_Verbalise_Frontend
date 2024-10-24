@@ -1,7 +1,7 @@
 export interface UsuarioI {
   id: string;
   nome: string;
-  idade: Number;
+  nascimento: string;
   email: string;
   nacionalidade: string;
   descricao: string;

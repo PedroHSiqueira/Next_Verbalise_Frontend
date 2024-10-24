@@ -27,7 +27,6 @@ export default function Perfil() {
       );
       if (response.status === 200) {
         const dados = await response.json();
-        console.log(dados);
         logar(dados);
       }
     }
@@ -53,6 +52,17 @@ export default function Perfil() {
     <ItemLanguage key={lingua.id} data={lingua} />
   ));
 
+  function calculaIdade(dataNascimento: string) {
+    const dataAtual = new Date();
+    const dataNasc = new Date(dataNascimento);
+    let idade = dataAtual.getFullYear() - dataNasc.getFullYear();
+    const mes = dataAtual.getMonth() - dataNasc.getMonth();
+    if (mes < 0 || (mes === 0 && dataAtual.getDate() < dataNasc.getDate())) {
+      idade -= 1;
+    }
+    return idade;
+  }
+
   let lingua;
   if (usuario.linguaMaternaId == 2) {
     lingua = 'Inglês - US';
@@ -62,6 +72,7 @@ export default function Perfil() {
     lingua = 'Aguardando dados';
   }
 
+const idadeConvertida = Math.abs(calculaIdade(usuario.nascimento));
   return (
     <div>
       <header className="mt-32">
@@ -90,7 +101,7 @@ export default function Perfil() {
             <div className="flex text-center flex-col text-sm gap-10 md:text-base lg:flex-row lg:text-start">
               <div>
                 <h2 className="text-center font-semibold">
-                  {usuario.idade as number}
+                  {idadeConvertida}
                 </h2>
                 <h2>Idade</h2>
               </div>
