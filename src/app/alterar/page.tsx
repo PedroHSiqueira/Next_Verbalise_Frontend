@@ -84,7 +84,7 @@ export default function login() {
             <HiEnvelope className="text-gray-400" />
           </div>
           <input
-            type="email"
+            type="text"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('token')}
@@ -101,7 +101,7 @@ export default function login() {
             <HiEnvelope className="text-gray-400" />
           </div>
           <input
-            type="email"
+            type="password"
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('senha')}
