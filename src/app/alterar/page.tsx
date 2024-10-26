@@ -18,7 +18,7 @@ export default function login() {
 
   async function alteracaoSenha(data: Inputs) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_URL_API}/usuarios/alterar`,
+      `${process.env.NEXT_PUBLIC_URL_API}/usuarios/recuperacao/alterar`,
       {
         method: 'put',
         headers: {
