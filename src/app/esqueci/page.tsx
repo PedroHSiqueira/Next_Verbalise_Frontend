@@ -76,7 +76,7 @@ export default function login() {
           type="submit"
           className="text-white bg-[#B38000] font-bold hover:bg-[#947321] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm w-full px-5 py-2.5 text-center"
         >
-          Entrar
+          Enviar Email
         </button>
       </form>
     </div>
