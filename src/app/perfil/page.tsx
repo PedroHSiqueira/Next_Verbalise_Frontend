@@ -23,7 +23,7 @@ export default function Perfil() {
   useEffect(() => {
     async function buscaUsuarios(idUsuario: string) {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_API}/usuarios/${idUsuario}`,
+        `${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`,
       );
       if (response.status === 200) {
         const dados = await response.json();
