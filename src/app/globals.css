@@ -76,3 +76,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.customModal {
+  background: #693f94;
+}

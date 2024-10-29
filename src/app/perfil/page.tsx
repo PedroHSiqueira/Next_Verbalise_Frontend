@@ -6,11 +6,10 @@ import { useUsuarioStore } from "@/context/usuario";
 import { useEffect, useState } from "react";
 import { IdiomaUsuarioI } from "@/utils/types/idiomaUsuario";
 import ItemLanguage from "@/components/itemLanguage";
-import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
+import "react-responsive-modal/styles.css";
 
 type Inputs = {
   nascimento: string;
@@ -25,7 +24,6 @@ export default function Perfil() {
   const { toast } = useToast();
   const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -37,7 +35,7 @@ export default function Perfil() {
   } else if (usuario.genero == "MULHER") {
     genero = "M";
   } else {
-    genero = "NAO_INFORMADO";
+    genero = "---";
   }
 
   async function atualizaPerfil(data: Inputs) {
@@ -116,9 +114,19 @@ export default function Perfil() {
 
   let lingua;
   if (usuario.linguaMaternaId == 2) {
-    lingua = "Inglês - US";
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Inglês</h3>
+        <span className="fi fi-us"></span>
+      </div>
+    );
   } else if (usuario.linguaMaternaId == 1) {
-    lingua = "Português - BR";
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Português</h3>
+        <span className="fi fi-br"></span>
+      </div>
+    );
   } else {
     lingua = "Aguardando dados";
   }
@@ -155,11 +163,9 @@ export default function Perfil() {
             </div>
           </div>
         </section>
-        <section className="w-screen mb-10">
+        <section className="w-full mb-10">
           <h2 className="text-xl font-bold mb-2">Sobre mim</h2>
-          <div className="bg-white p-10 w-3/5 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
-            <p className="">{usuario.descricao || "Adicione uma descrição sobre você ..."}</p>
-          </div>
+          <div className="bg-white p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{usuario.descricao || "Adicione uma descrição sobre você ..."}</div>
         </section>
         <section className="mb-14">
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Destaques</h2>
@@ -193,8 +199,8 @@ export default function Perfil() {
           </section>
         )}
       </main>
-      <Modal open={open} onClose={onCloseModal}>
-        <h2 className="mt-5">Atualizar Campos Do Perfil de Usuário</h2>
+      <Modal open={open} onClose={onCloseModal} closeOnOverlayClick>
+        <h2 className=" bg-[#693f94] text-white rounded-md p-3 mt-10">Atualizar Campos Do Perfil de Usuário</h2>
         <form className="max-w-sm mx-auto mt-5" onSubmit={handleSubmit(atualizaPerfil)}>
           <div className="mb-5">
             <label htmlFor="default-datepicker" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -236,7 +242,7 @@ export default function Perfil() {
             </label>
             <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
           </div>
-          <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button type="submit" className="w-full cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-4 py-2 text-center ">
             Atualizar Informações
           </button>
         </form>
