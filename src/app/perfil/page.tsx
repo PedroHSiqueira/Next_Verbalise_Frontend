@@ -99,7 +99,7 @@ export default function Perfil() {
     getLinguas();
   }, []);
 
-  const listaLinguas = linguas.map((lingua) => <ItemLanguage key={lingua.id} data={lingua} />);
+  let listaLinguas = linguas.map((lingua) => <ItemLanguage key={lingua.id} data={lingua} />);
 
   function calculaIdade(dataNascimento: string) {
     const dataAtual = new Date();
@@ -233,7 +233,10 @@ export default function Perfil() {
             <select id="Nacionality" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
               <option>Brasileiro</option>
               <option>Estadunidense</option>
-              <option>Outro</option>
+              <option>Japonês</option>
+              <option>Chinês</option>
+              <option>Alemão</option>
+              <option>Espanhol</option>
             </select>
           </div>
           <div className="max-w-sm mx-auto mb-5">
