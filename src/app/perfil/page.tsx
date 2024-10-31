@@ -76,6 +76,12 @@ export default function Perfil() {
   }
 
   useEffect(() => {
+    if (localStorage.getItem("client_key")) {
+      const usuarioSalvo = localStorage.getItem("client_key") as string;
+      const usuarioValor = usuarioSalvo.replace(/"/g, "");
+      buscaUsuarios(usuarioValor);
+      getLinguas(usuarioValor);
+    }
     async function buscaUsuarios(idUsuario: string) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`);
       if (response.status === 200) {
@@ -83,20 +89,14 @@ export default function Perfil() {
         logar(dados);
       }
     }
-    if (localStorage.getItem("client_key")) {
-      const usuarioSalvo = localStorage.getItem("client_key") as string;
-      const usuarioValor = usuarioSalvo.replace(/"/g, "");
-      buscaUsuarios(usuarioValor);
-    }
 
-    async function getLinguas() {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/idiomasUsuarios/${usuario.id}`);
+    async function getLinguas(idUsuario: string) {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/idiomasUsuarios/${idUsuario}`);
       if (response.status == 200) {
         const dados = await response.json();
         setLinguas(dados);
       }
     }
-    getLinguas();
   }, []);
 
   let listaLinguas = linguas.map((lingua) => <ItemLanguage key={lingua.id} data={lingua} />);
@@ -165,7 +165,7 @@ export default function Perfil() {
         </section>
         <section className="w-full mb-10">
           <h2 className="text-xl font-bold mb-2">Sobre mim</h2>
-          <div className="bg-white p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{usuario.descricao || "Adicione uma descrição sobre você ..."}</div>
+          <textarea className="bg-white text-wrap w-full p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{usuario.descricao}</textarea>
         </section>
         <section className="mb-14">
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Destaques</h2>
