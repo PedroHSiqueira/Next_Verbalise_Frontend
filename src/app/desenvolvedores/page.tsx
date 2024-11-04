@@ -55,7 +55,7 @@ export default function Home() {
                 src="./Desenvolvedores/1.jpg"
                 className=" flex items-center w-32 rounded-3xl lg:w-40"
               />
-              <Link href="https://www.linkedin.com/in/vitormacedoo/" target='_blank' className="text-xl font-bold text-center">P.N</Link>
+              <Link href="https://www.linkedin.com/in/vitormacedoo/" target='_blank' className="text-xl font-bold text-center">P.O</Link>
             </div>
             <div className="bg-zinc-900 p-10 rounded-3xl flex flex-col items-center gap-5 hover:scale-105 transition delay-150 duration-150 ease-in-out shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
               <h2 className="text-xl font-bold text-center">Pedro Siqueira</h2>
