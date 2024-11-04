@@ -130,11 +130,11 @@ export default function login() {
         >
           Entrar
         </button>
-        <div className="flex justify-between pt-5">
-          <a href="/registro" className="text-white font-semibold hover:text-[#B38000]">
+        <div className="flex justify-between pt-5 gap-5">
+          <a href="/registro" className="text-white text-sm font-semibold hover:text-[#B38000]">
             Registrar-se
           </a>
-          <a href="/esqueci" className="text-white font-semibold hover:text-[#B38000]">
+          <a href="/esqueci" className="text-white text-sm font-semibold hover:text-[#B38000]">
             Esqueceu sua senha?
           </a>
         </div>

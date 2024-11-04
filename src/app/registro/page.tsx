@@ -73,6 +73,7 @@ export default function Registro() {
           </div>
           <input
             type="text"
+            maxLength={20}
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('nome')}
@@ -114,7 +115,7 @@ export default function Registro() {
         </div>
         <button
           type="submit"
-          className="text-black bg-[#B38000] font-bold  hover:bg-[#947321] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg  w-full px-5 py-2.5 text-center"
+          className="text-white bg-[#B38000] font-bold  hover:bg-[#947321] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg  w-full px-5 py-2.5 text-center"
         >
           Registrar-se
         </button>

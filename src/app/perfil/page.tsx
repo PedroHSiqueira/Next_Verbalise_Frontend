@@ -141,12 +141,12 @@ export default function Perfil() {
         <Header />
       </header>
       <main className="mx-20">
-        <section className="flex mb-14 flex-col md:flex-row lg:gap-10 lg:mb-10">
+        <section className="flex mb-14 gap-10 flex-col  md:flex-row lg:gap-10 lg:mb-10">
           <Image alt="avatar icon" width={215} height={215} src={usuario.foto} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
           <div className="flex flex-col gap-5 justify-center">
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-20 md:gap-4">
               <h1 className="text-2xl font-bold">{usuario.nome}</h1>
-              <Link href={"#"} onClick={onOpenModal} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-black font-bold p-2 rounded-3xl border-2 border-[#b38000] hover:bg-[#B38000] focus:ring-4 focus:outline-none text-xl text-center ">
+              <Link href={"#"} onClick={onOpenModal} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center ">
                 Editar
               </Link>
             </div>

@@ -232,7 +232,7 @@ export default function Header() {
             </Link>
             <div className="flex flex-col gap-3">
               <Link
-                href={'/registro'}
+                href={'/login'}
                 className="cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex items-center justify-center m-0 text-white bg-slate-800  focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-4 py-2 text-center "
               >
                 Login
