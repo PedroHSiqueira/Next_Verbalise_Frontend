@@ -10,7 +10,8 @@ import { Modal } from "react-responsive-modal";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import "react-responsive-modal/styles.css";
-import { UsuarioI } from "@/utils/types/usuarios";
+
+import Cookies from 'js-cookie';
 
 type Inputs = {
   nascimento: string;
@@ -25,6 +26,7 @@ export default function Perfil() {
   const { toast } = useToast();
   const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   const [open, setOpen] = useState(false);
+  const descricaoUsuario = Cookies.get('descricao');
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -61,6 +63,8 @@ export default function Perfil() {
       }),
     });
     if (response.status === 200) {
+      const dados = await response.json();
+      Cookies.set('descricao', dados.descricao);
       onCloseModal();
       toast({
         variant: "default",
@@ -130,7 +134,6 @@ export default function Perfil() {
     );
     lingua = "Aguardando dados";
   }
-
   const idadeConvertida = Math.abs(calculaIdade(usuario.nascimento));
   return (
     <div>
@@ -166,7 +169,7 @@ export default function Perfil() {
         <section className="w-full mb-10">
           <h2 className="text-xl font-bold mb-2">Sobre mim</h2>
           <textarea readOnly className="bg-white text-wrap w-full p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">
-            {usuario.descricao || "Aguardando dados"}
+            {descricaoUsuario || "Aguardando dados"}
           </textarea>
         </section>
         <section className="mb-14">

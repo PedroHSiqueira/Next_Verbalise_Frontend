@@ -9,6 +9,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { HiEnvelope } from 'react-icons/hi2';
 import { HiLockClosed } from 'react-icons/hi2';
 
+import Cookies from 'js-cookie';
+
 type Inputs = {
   email: string;
   senha: string;
@@ -32,9 +34,11 @@ export default function login() {
         body: JSON.stringify({ email: data.email, senha: data.senha }),
       },
     );
-    console.log(response);
     if (response.status === 200) {
       const dados = await response.json();
+
+      Cookies.set('descricao', dados.descricao);
+
       logar(dados);
 
       if (data.continuarConectado) {
