@@ -244,12 +244,12 @@ export default function Perfil() {
               <option>Espanhol</option>
             </select>
           </div>
-          <div className="max-w-sm mx-auto mb-5">
+            <div className="max-w-sm mx-auto mb-5">
             <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Descrição
             </label>
-            <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
-          </div>
+            <textarea id="message" maxLength={255} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
+            </div>
           <button type="submit" className="w-full cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-4 py-2 text-center ">
             Atualizar Informações
           </button>
