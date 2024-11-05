@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import "react-responsive-modal/styles.css";
 
 import Cookies from 'js-cookie';
+import Select from "react-select";
 
 type Inputs = {
   nascimento: string;
@@ -20,16 +21,35 @@ type Inputs = {
   genero: string;
 };
 
+const linguasInteresseDisponivel = [
+  {value: "Inglês", label: "Inglês"},
+  {value: "Espanhol", label: "Espanhol"},
+  {value: "Francês", label: "Francês"},
+  {value: "Alemão", label: "Alemão"},
+  {value: "Italiano", label: "Italiano"},
+  {value: "Japonês", label: "Japonês"},
+  {value: "Chinês", label: "Chinês"},
+  {value: "Coreano", label: "Coreano"},
+  {value: "Russo", label: "Russo"},
+  {value: "Árabe", label: "Árabe"},
+] 
+
 export default function Perfil() {
   const { usuario, logar } = useUsuarioStore();
   const { register, handleSubmit } = useForm<Inputs>();
   const { toast } = useToast();
   const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   const [open, setOpen] = useState(false);
-  const descricaoUsuario = Cookies.get('descricao');
+  const [linguasInteresse, setLinguasInteresse] = useState([]);
 
+  const handleChanges = (linguasInteresse: any) => {
+    console.log(linguasInteresse);
+    setLinguasInteresse(linguasInteresse);
+  }
+  const descricaoUsuario = Cookies.get('descricao');
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
   let genero: string;
   let mudarGenero: string;
 
@@ -57,7 +77,7 @@ export default function Perfil() {
       body: JSON.stringify({
         nascimento: (data.nascimento + "T00:00:00+00:00") as string,
         nacionalidade: data.nacionalidade as string,
-        descricao: data.descricao || ("teste" as string),
+        descricao: data.descricao,
         genero: mudarGenero as string,
         linguaMaternaId: 1,
       }),
@@ -243,6 +263,18 @@ export default function Perfil() {
               <option>Alemão</option>
               <option>Espanhol</option>
             </select>
+          </div>
+          <div className="mb-5">
+            <label htmlFor="languages" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Linguas de Interesse
+            </label>
+            <Select
+              isMulti
+              id="languages"
+              placeholder="Selecione..."
+              options={linguasInteresseDisponivel}
+              onChange={handleChanges}
+            />
           </div>
             <div className="max-w-sm mx-auto mb-5">
             <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
