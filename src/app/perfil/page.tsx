@@ -77,7 +77,7 @@ export default function Perfil() {
       body: JSON.stringify({
         nascimento: (data.nascimento + "T00:00:00+00:00") as string,
         nacionalidade: data.nacionalidade as string,
-        descricao: data.descricao,
+        descricao: data.descricao || "..." as string,
         genero: mudarGenero as string,
         linguaMaternaId: 1,
       }),
