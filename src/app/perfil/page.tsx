@@ -19,6 +19,7 @@ type Inputs = {
   nacionalidade: string;
   descricao: string;
   genero: string;
+  linguaMaterna: string;
 };
 
 const linguasInteresseDisponivel = [
@@ -52,6 +53,7 @@ export default function Perfil() {
 
   let genero: string;
   let mudarGenero: string;
+  let linguaNativa: number;
 
   if (usuario.genero == "HOMEM") {
     genero = "H";
@@ -69,6 +71,29 @@ export default function Perfil() {
     } else {
       mudarGenero = "NAO_INFORMADO";
     }
+
+    if (data.linguaMaterna == "Português") {
+      linguaNativa = 1;
+    } else if (data.linguaMaterna == "Inglês") {
+      linguaNativa = 2;
+    } else if (data.linguaMaterna == "Japonês") {
+      linguaNativa = 3;
+    } else if (data.linguaMaterna == "Mandarim") {
+      linguaNativa = 4;
+    } else if (data.linguaMaterna == "Alemão") {
+      linguaNativa = 5;
+    } else if (data.linguaMaterna == "Espanhol") {
+      linguaNativa = 6;
+    } else if (data.linguaMaterna == "Francês") {
+      linguaNativa = 7;
+    } else if (data.linguaMaterna == "Coreano") {
+      linguaNativa = 8;
+    } else if (data.linguaMaterna == "Tagalog") {
+      linguaNativa = 9;
+    } else if (data.linguaMaterna == "Russo") {
+      linguaNativa = 10;
+    }
+
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/mudainformacoes/${usuario.id}`, {
       method: "put",
       headers: {
@@ -79,7 +104,7 @@ export default function Perfil() {
         nacionalidade: data.nacionalidade as string,
         descricao: data.descricao || "..." as string,
         genero: mudarGenero as string,
-        linguaMaternaId: 1,
+        linguaMaternaId: linguaNativa as number,
       }),
     });
     if (response.status === 200) {
@@ -152,8 +177,64 @@ export default function Perfil() {
         <span className="fi fi-us"></span>
       </div>
     );
-    lingua = "Aguardando dados";
+  } else if (usuario.linguaMaternaId == 3) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Japonês</h3>
+        <span className="fi fi-jp"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 4) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Mandarim</h3>
+        <span className="fi fi-cn"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 5) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Alemão</h3>
+        <span className="fi fi-de"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 6) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Espanhol</h3>
+        <span className="fi fi-es"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 7) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Francês</h3>
+        <span className="fi fi-fr"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 8) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Coreano</h3>
+        <span className="fi fi-kr"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 9) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Tagalog</h3>
+        <span className="fi fi-ph"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 10) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Russo</h3>
+        <span className="fi fi-ru"></span>
+      </div>
+    );
   }
+
   const idadeConvertida = Math.abs(calculaIdade(usuario.nascimento));
   return (
     <div>
@@ -213,7 +294,7 @@ export default function Perfil() {
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Fluentes</h2>
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
-              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{(lingua as string) || "Aguardando"}</h2>
+              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{(lingua) || "Aguardando"}</h2>
             </div>
           </div>
         </section>
@@ -268,15 +349,17 @@ export default function Perfil() {
             <label htmlFor="Native" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Lingua Nativa
             </label>
-            <select id="native" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-              <option>Portugues BR</option>
-              <option>Portugues PT</option>
-              <option>Inglês US</option>
-              <option>Inglês GB</option>
+            <select id="native" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
+            <option>Português</option>
+              <option>Inglês </option>
               <option>Japonês</option>
-              <option>Chinês</option>
+              <option>Mandarim</option>
               <option>Alemão</option>
               <option>Espanhol</option>
+              <option>Francês</option>
+              <option>Coreano</option>
+              <option>Tagalog</option>
+              <option>Russo</option>
             </select>
           </div>
           <div className="mb-5">
