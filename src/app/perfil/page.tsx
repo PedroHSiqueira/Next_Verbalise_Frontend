@@ -19,20 +19,20 @@ type Inputs = {
   nacionalidade: string;
   descricao: string;
   genero: string;
-  linguaMaterna: string;
+  linguaMaterna: number;
 };
 
 const linguasInteresseDisponivel = [
   { id: 1, value: "Inglês", label: "Inglês" },
-  { id: 2,value: "Espanhol", label: "Espanhol" },
-  { id: 3,value: "Francês", label: "Francês" },
-  { id: 4,value: "Alemão", label: "Alemão" },
-  { id: 5,value: "Italiano", label: "Italiano" },
-  { id: 6,value: "Japonês", label: "Japonês" },
-  { id: 7,value: "Chinês", label: "Chinês" },
-  { id: 8,value: "Coreano", label: "Coreano" },
-  { id: 9,value: "Russo", label: "Russo" },
-  { id: 10,value: "Árabe", label: "Árabe" },
+  { id: 2, value: "Espanhol", label: "Espanhol" },
+  { id: 3, value: "Francês", label: "Francês" },
+  { id: 4, value: "Alemão", label: "Alemão" },
+  { id: 5, value: "Italiano", label: "Italiano" },
+  { id: 6, value: "Japonês", label: "Japonês" },
+  { id: 7, value: "Chinês", label: "Chinês" },
+  { id: 8, value: "Coreano", label: "Coreano" },
+  { id: 9, value: "Russo", label: "Russo" },
+  { id: 10, value: "Árabe", label: "Árabe" },
 ];
 
 export default function Perfil() {
@@ -42,6 +42,7 @@ export default function Perfil() {
   const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   const [open, setOpen] = useState(false);
   const [linguasInteresse, setLinguasInteresse] = useState([]);
+  const [dataNascimento, setDataNascimento] = useState("");
 
   const handleChanges = (linguasInteresse: any) => {
     console.log(linguasInteresse);
@@ -52,8 +53,7 @@ export default function Perfil() {
   const onCloseModal = () => setOpen(false);
 
   let genero: string;
-  let mudarGenero: string;
-  let linguaNativa: number;
+  let converteData: string;
 
   if (usuario.genero == "HOMEM") {
     genero = "H";
@@ -64,36 +64,6 @@ export default function Perfil() {
   }
 
   async function atualizaPerfil(data: Inputs) {
-    if (data.genero == "Homem") {
-      mudarGenero = "HOMEM";
-    } else if (data.genero == "Mulher") {
-      mudarGenero = "MULHER";
-    } else {
-      mudarGenero = "NAO_INFORMADO";
-    }
-
-    if (data.linguaMaterna == "Português") {
-      linguaNativa = 1;
-    } else if (data.linguaMaterna == "Inglês") {
-      linguaNativa = 2;
-    } else if (data.linguaMaterna == "Japonês") {
-      linguaNativa = 3;
-    } else if (data.linguaMaterna == "Mandarim") {
-      linguaNativa = 4;
-    } else if (data.linguaMaterna == "Alemão") {
-      linguaNativa = 5;
-    } else if (data.linguaMaterna == "Espanhol") {
-      linguaNativa = 6;
-    } else if (data.linguaMaterna == "Francês") {
-      linguaNativa = 7;
-    } else if (data.linguaMaterna == "Coreano") {
-      linguaNativa = 8;
-    } else if (data.linguaMaterna == "Tagalog") {
-      linguaNativa = 9;
-    } else if (data.linguaMaterna == "Russo") {
-      linguaNativa = 10;
-    }
-
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/mudainformacoes/${usuario.id}`, {
       method: "put",
       headers: {
@@ -102,9 +72,9 @@ export default function Perfil() {
       body: JSON.stringify({
         nascimento: (data.nascimento + "T00:00:00+00:00") as string,
         nacionalidade: data.nacionalidade as string,
-        descricao: data.descricao || "..." as string,
-        genero: mudarGenero as string,
-        linguaMaternaId: linguaNativa as number,
+        descricao: data.descricao || ("..." as string),
+        genero: data.genero as string,
+        linguaMaternaId: Number(data.linguaMaterna),
       }),
     });
     if (response.status === 200) {
@@ -138,6 +108,7 @@ export default function Perfil() {
       if (response.status === 200) {
         const dados = await response.json();
         logar(dados);
+        setDataNascimento(dados.nascimento);
       }
     }
     async function getLinguas(idUsuario: string) {
@@ -181,7 +152,7 @@ export default function Perfil() {
     lingua = (
       <div className="flex items-center justify-center gap-3">
         <h3>Japonês</h3>
-        <span className="fi fi-jp"></span>
+        <span className="fi fi-jp border-black"></span>
       </div>
     );
   } else if (usuario.linguaMaternaId == 4) {
@@ -216,7 +187,7 @@ export default function Perfil() {
     lingua = (
       <div className="flex items-center justify-center gap-3">
         <h3>Coreano</h3>
-        <span className="fi fi-kr"></span>
+        <span className="fi fi-kr border-black"></span>
       </div>
     );
   } else if (usuario.linguaMaternaId == 9) {
@@ -231,6 +202,13 @@ export default function Perfil() {
       <div className="flex items-center justify-center gap-3">
         <h3>Russo</h3>
         <span className="fi fi-ru"></span>
+      </div>
+    );
+  } else if (usuario.linguaMaternaId == 11) {
+    lingua = (
+      <div className="flex items-center justify-center gap-3">
+        <h3>Indonésio</h3>
+        <span className="fi fi-id border border-black"></span>
       </div>
     );
   }
@@ -291,10 +269,10 @@ export default function Perfil() {
           </div>
         </section>
         <section className="mb-14">
-          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Fluentes</h2>
+          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas De Proficiência</h2>
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
-              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{(lingua) || "Aguardando"}</h2>
+              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{lingua || "Aguardando"}</h2>
             </div>
           </div>
         </section>
@@ -318,7 +296,7 @@ export default function Perfil() {
                   <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                 </svg>
               </div>
-              <input id="default-datepicker" type="date"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
+              <input id="default-datepicker" defaultValue={dataNascimento} type="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
             </div>
           </div>
           <div className="mb-5">
@@ -326,10 +304,9 @@ export default function Perfil() {
               Gênero
             </label>
             <select id="gender" defaultValue={usuario.genero} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
-              <option>Homem</option>
-              <option>Mulher</option>
-              <option>Não informar</option>
-              <option>Outro</option>
+              <option value={"HOMEM"}>Homem</option>
+              <option value={"MULHER"}>Mulher</option>
+              <option value={"NAO_INFORMADO"}>Não Informado</option>
             </select>
           </div>
           <div className="mb-5">
@@ -339,27 +316,35 @@ export default function Perfil() {
             <select id="Nacionality" defaultValue={usuario.nacionalidade} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
               <option>Brasileiro</option>
               <option>Estadunidense</option>
+              <option>Canadense</option>
+              <option>Britanico</option>
               <option>Japonês</option>
               <option>Chinês</option>
               <option>Alemão</option>
               <option>Espanhol</option>
+              <option>Francês</option>
+              <option>Coreano</option>
+              <option>Filipino (Pinoy)</option>
+              <option>Russo</option>
+              <option>Indonésio</option>
             </select>
           </div>
           <div className="mb-5">
             <label htmlFor="Native" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Lingua Nativa
             </label>
-            <select id="native" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
-            <option>Português</option>
-              <option>Inglês</option>
-              <option>Japonês</option>
-              <option>Mandarim</option>
-              <option>Alemão</option>
-              <option>Espanhol</option>
-              <option>Francês</option>
-              <option>Coreano</option>
-              <option>Tagalog</option>
-              <option>Russo</option>
+            <select id="native" defaultValue={usuario.linguaMaternaId as number} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
+              <option value={1}>Português</option>
+              <option value={2}>Inglês</option>
+              <option value={3}>Japonês</option>
+              <option value={4}>Mandarim</option>
+              <option value={5}>Alemão</option>
+              <option value={6}>Espanhol</option>
+              <option value={7}>Francês</option>
+              <option value={8}>Coreano</option>
+              <option value={9}>Tagalog</option>
+              <option value={10}>Russo</option>
+              <option value={11}>Indonésio</option>
             </select>
           </div>
           <div className="mb-5">
@@ -372,7 +357,7 @@ export default function Perfil() {
             <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Descrição
             </label>
-            <textarea id="message" maxLength={255} value={descricaoUsuario} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
+            <textarea id="message" maxLength={255} defaultValue={descricaoUsuario} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
           </div>
           <button type="submit" className="w-full cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-4 py-2 text-center ">
             Atualizar Informações

@@ -48,9 +48,7 @@ export default function login() {
           localStorage.removeItem('client_key');
         }
       }
-
       router.push('/');
-
       toast({
         variant: 'success',
         title: 'Login efetuado com sucesso',
