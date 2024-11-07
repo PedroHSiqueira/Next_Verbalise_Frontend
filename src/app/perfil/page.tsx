@@ -23,16 +23,16 @@ type Inputs = {
 };
 
 const linguasInteresseDisponivel = [
-  { value: "Inglês", label: "Inglês" },
-  { value: "Espanhol", label: "Espanhol" },
-  { value: "Francês", label: "Francês" },
-  { value: "Alemão", label: "Alemão" },
-  { value: "Italiano", label: "Italiano" },
-  { value: "Japonês", label: "Japonês" },
-  { value: "Chinês", label: "Chinês" },
-  { value: "Coreano", label: "Coreano" },
-  { value: "Russo", label: "Russo" },
-  { value: "Árabe", label: "Árabe" },
+  { id: 1, value: "Inglês", label: "Inglês" },
+  { id: 2,value: "Espanhol", label: "Espanhol" },
+  { id: 3,value: "Francês", label: "Francês" },
+  { id: 4,value: "Alemão", label: "Alemão" },
+  { id: 5,value: "Italiano", label: "Italiano" },
+  { id: 6,value: "Japonês", label: "Japonês" },
+  { id: 7,value: "Chinês", label: "Chinês" },
+  { id: 8,value: "Coreano", label: "Coreano" },
+  { id: 9,value: "Russo", label: "Russo" },
+  { id: 10,value: "Árabe", label: "Árabe" },
 ];
 
 export default function Perfil() {
