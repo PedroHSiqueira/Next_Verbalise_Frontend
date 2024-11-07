@@ -20,19 +20,21 @@ type Inputs = {
   descricao: string;
   genero: string;
   linguaMaterna: number;
+  linguasInteresse: object[];
 };
 
 const linguasInteresseDisponivel = [
-  { id: 1, value: "Inglês", label: "Inglês" },
-  { id: 2, value: "Espanhol", label: "Espanhol" },
-  { id: 3, value: "Francês", label: "Francês" },
-  { id: 4, value: "Alemão", label: "Alemão" },
-  { id: 5, value: "Italiano", label: "Italiano" },
-  { id: 6, value: "Japonês", label: "Japonês" },
-  { id: 7, value: "Chinês", label: "Chinês" },
+  { id: 1, value: "Português", label: "Português" },
+  { id: 2, value: "Inglês", label: "Inglês" },
+  { id: 3, value: "Japonês", label: "Japonês" },
+  { id: 4, value: "Mandarim", label: "Mandarim" },
+  { id: 5, value: "Alemão", label: "Alemão" },
+  { id: 6, value: "Espanhol", label: "Espanhol" },
+  { id: 7, value: "Francês", label: "Francês" },
   { id: 8, value: "Coreano", label: "Coreano" },
-  { id: 9, value: "Russo", label: "Russo" },
-  { id: 10, value: "Árabe", label: "Árabe" },
+  { id: 9, value: "Tagalog", label: "Tagalog" },
+  { id: 10, value: "Russo", label: "Russo" },
+  { id: 11, value: "Indonésio", label: "Indonésio" },
 ];
 
 export default function Perfil() {
@@ -53,7 +55,6 @@ export default function Perfil() {
   const onCloseModal = () => setOpen(false);
 
   let genero: string;
-  let converteData: string;
 
   if (usuario.genero == "HOMEM") {
     genero = "H";
@@ -64,6 +65,8 @@ export default function Perfil() {
   }
 
   async function atualizaPerfil(data: Inputs) {
+    console.log(data);
+    console.log(linguasInteresse);
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/mudainformacoes/${usuario.id}`, {
       method: "put",
       headers: {
@@ -75,6 +78,7 @@ export default function Perfil() {
         descricao: data.descricao || ("..." as string),
         genero: data.genero as string,
         linguaMaternaId: Number(data.linguaMaterna),
+        linguasInteresse: linguasInteresse,
       }),
     });
     if (response.status === 200) {
@@ -194,7 +198,7 @@ export default function Perfil() {
     lingua = (
       <div className="flex items-center justify-center gap-3">
         <h3>Tagalog</h3>
-        <span className="fi fi-ph"></span>
+        <span className="fi fi-ph "></span>
       </div>
     );
   } else if (usuario.linguaMaternaId == 10) {
@@ -208,7 +212,7 @@ export default function Perfil() {
     lingua = (
       <div className="flex items-center justify-center gap-3">
         <h3>Indonésio</h3>
-        <span className="fi fi-id border border-black"></span>
+        <span className="fi fi-id "></span>
       </div>
     );
   }
@@ -269,7 +273,7 @@ export default function Perfil() {
           </div>
         </section>
         <section className="mb-14">
-          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas De Proficiência</h2>
+          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Nativa</h2>
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
               <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{lingua || "Aguardando"}</h2>
@@ -306,7 +310,7 @@ export default function Perfil() {
             <select id="gender" defaultValue={usuario.genero} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
               <option value={"HOMEM"}>Homem</option>
               <option value={"MULHER"}>Mulher</option>
-              <option value={"NAO_INFORMADO"}>Não Informado</option>
+              <option value={"NAO_INFORMADO"}>Não Informar</option>
             </select>
           </div>
           <div className="mb-5">
@@ -314,19 +318,19 @@ export default function Perfil() {
               Nacionalidade
             </label>
             <select id="Nacionality" defaultValue={usuario.nacionalidade} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
-              <option>Brasileiro</option>
-              <option>Estadunidense</option>
-              <option>Canadense</option>
-              <option>Britanico</option>
-              <option>Japonês</option>
-              <option>Chinês</option>
               <option>Alemão</option>
-              <option>Espanhol</option>
-              <option>Francês</option>
+              <option>Brasileiro</option>
+              <option>Britanico</option>
+              <option>Canadense</option>
+              <option>Chinês</option>
               <option>Coreano</option>
+              <option>Espanhol</option>
+              <option>Estadunidense</option>
               <option>Filipino (Pinoy)</option>
-              <option>Russo</option>
+              <option>Francês</option>
               <option>Indonésio</option>
+              <option>Japonês</option>
+              <option>Russo</option>
             </select>
           </div>
           <div className="mb-5">
@@ -334,17 +338,17 @@ export default function Perfil() {
               Lingua Nativa
             </label>
             <select id="native" defaultValue={usuario.linguaMaternaId as number} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
-              <option value={1}>Português</option>
-              <option value={2}>Inglês</option>
-              <option value={3}>Japonês</option>
-              <option value={4}>Mandarim</option>
               <option value={5}>Alemão</option>
+              <option value={2}>Inglês</option>
+              <option value={11}>Indonésio</option>
               <option value={6}>Espanhol</option>
               <option value={7}>Francês</option>
-              <option value={8}>Coreano</option>
-              <option value={9}>Tagalog</option>
+              <option value={1}>Português</option>
               <option value={10}>Russo</option>
-              <option value={11}>Indonésio</option>
+              <option value={9}>Tagalog</option>
+              <option value={4}>Mandarim</option>
+              <option value={3}>Japonês</option>
+              <option value={8}>Coreano</option>
             </select>
           </div>
           <div className="mb-5">
