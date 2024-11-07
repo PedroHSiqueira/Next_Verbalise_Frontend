@@ -318,14 +318,14 @@ export default function Perfil() {
                   <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                 </svg>
               </div>
-              <input id="default-datepicker" type="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
+              <input id="default-datepicker" type="date"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
             </div>
           </div>
           <div className="mb-5">
             <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Gênero
             </label>
-            <select id="gender" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
+            <select id="gender" defaultValue={usuario.genero} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
               <option>Homem</option>
               <option>Mulher</option>
               <option>Não informar</option>
@@ -336,7 +336,7 @@ export default function Perfil() {
             <label htmlFor="Nacionality" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Nacionalidade
             </label>
-            <select id="Nacionality" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
+            <select id="Nacionality" defaultValue={usuario.nacionalidade} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
               <option>Brasileiro</option>
               <option>Estadunidense</option>
               <option>Japonês</option>
@@ -351,7 +351,7 @@ export default function Perfil() {
             </label>
             <select id="native" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
             <option>Português</option>
-              <option>Inglês </option>
+              <option>Inglês</option>
               <option>Japonês</option>
               <option>Mandarim</option>
               <option>Alemão</option>
@@ -372,7 +372,7 @@ export default function Perfil() {
             <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Descrição
             </label>
-            <textarea id="message" maxLength={255} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
+            <textarea id="message" maxLength={255} value={descricaoUsuario} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Mudar Descrição do Perfil . . ." {...register("descricao")}></textarea>
           </div>
           <button type="submit" className="w-full cursor-pointer transition delay-150 duration-300 ease-in-out shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]  m-0 text-white bg-slate-800 hover:bg-[#B38000] focus:ring-4 focus:outline-none font-medium rounded-3xl text-sm px-4 py-2 text-center ">
             Atualizar Informações
