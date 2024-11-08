@@ -141,7 +141,7 @@ export default function Perfil() {
   if (usuario.linguaMaternaId == 1) {
     lingua = (
       <div className="flex items-center justify-center gap-3">
-        <h3>Português</h3>
+        <h3 className="">Português</h3>
         <span className="fi fi-br"></span>
       </div>
     );
@@ -276,14 +276,14 @@ export default function Perfil() {
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Nativa</h2>
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
-              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px]">{lingua || "Aguardando"}</h2>
+              <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex items-center justify-center min-w-[150px]">{lingua || "Aguardando"}</h2>
             </div>
           </div>
         </section>
         {linguas.length > 0 && (
           <section className="mb-14">
             <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas De interesse</h2>
-            <div className="flex flex-col gap-10 md:flex-row">{listaLinguas}</div>
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-10">{listaLinguas}</div>
           </section>
         )}
       </main>
