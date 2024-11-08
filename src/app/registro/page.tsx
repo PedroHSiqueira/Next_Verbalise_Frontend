@@ -6,6 +6,9 @@ import { useForm } from 'react-hook-form';
 import { HiEnvelope } from 'react-icons/hi2';
 import { HiLockClosed } from 'react-icons/hi2';
 import { HiMiniUserCircle } from 'react-icons/hi2';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from 'react';
 
 type Inputs = {
   nome: string;
@@ -17,6 +20,7 @@ export default function Registro() {
   const { register, handleSubmit } = useForm<Inputs>();
   const { toast } = useToast();
   const router = useRouter();
+  const [visivel, setVisivel] = useState(false);
 
   async function verificaCadastro(data: Inputs) {
     const response = await fetch(
@@ -107,11 +111,14 @@ export default function Registro() {
             <HiLockClosed className="text-gray-400" />
           </div>
           <input
-            type="password"
+            type={visivel ? 'text' : 'password'}
             className=" border text-sm rounded-lg block w-full ps-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
             required
             {...register('senha')}
           />
+          <div className="absolute cursor-pointer inset-y-0 end-0 flex items-center pe-3.5" onClick={() => setVisivel(!visivel)}>
+            {visivel ? <FaEyeSlash className="text-gray-400" /> : <FaEye className="text-gray-400" />}
+          </div>
         </div>
         <button
           type="submit"
