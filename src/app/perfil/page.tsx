@@ -296,7 +296,7 @@ export default function Perfil() {
             <label htmlFor="foto" className="form-label">
               URL da Foto:
             </label>
-            <input type="text" className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="foto" {...register("foto")} />
+            <input type="text" defaultValue={usuario.foto} className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="foto" {...register("foto")} />
           </div>
             <div className="flex gap-5 mb-5">
             <div className="w-full">
