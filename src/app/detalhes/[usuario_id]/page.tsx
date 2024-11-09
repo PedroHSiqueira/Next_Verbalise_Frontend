@@ -24,14 +24,14 @@ type Inputs = {
 };
 
 
-export default function Perfil() {
+export default function Detalhes() {
   const { usuario, logar } = useUsuarioStore();
   const { toast } = useToast();
   const [linguas, setLinguas] = useState<IdiomaUsuarioI[]>([]);
   const [dataNascimento, setDataNascimento] = useState("");
   const descricaoUsuario = Cookies.get("descricao");
   const params = useParams()
-  const [setUsuario, setUsuarioSelecionado] = useState<UsuarioI>();
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState<UsuarioI>();
   let genero: string;
 
   if (usuario.genero == "HOMEM") {
@@ -52,7 +52,7 @@ export default function Perfil() {
     }
 
     async function getDados() {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/produtos/${params.produto_id}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/detalhes/${params.usuario_id}`);
       const dados = await response.json()
       console.log(dados)
       setUsuarioSelecionado(dados)
@@ -62,6 +62,7 @@ export default function Perfil() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`);
       if (response.status === 200) {
         const dados = await response.json();
+        logar(dados);
 
         setDataNascimento(dados.nascimento);
       }
@@ -176,10 +177,10 @@ export default function Perfil() {
       </header>
       <main className="mx-20">
         <section className="flex mb-14 gap-10 flex-col  md:flex-row lg:gap-10 lg:mb-10">
-          <Image alt="avatar icon"width={215} height={215} src={usuario.foto} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
+          <Image alt="avatar icon" width={215} height={215} src={usuarioSelecionado?.foto || "/default-avatar.png"} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex items-center gap-20 md:gap-4">
-              <h1 className="text-2xl font-bold">{usuario.nome}</h1>
+              <h1 className="text-2xl font-bold">{usuarioSelecionado?.nome}</h1>
             </div>
             <div className="flex text-center text-sm gap-10 md:text-base  lg:text-start">
               <div>
@@ -191,7 +192,7 @@ export default function Perfil() {
                 <h2>Gênero</h2>
               </div>
               <div>
-                <h2 className="text-center font-semibold">{usuario.nacionalidade}</h2>
+                <h2 className="text-center font-semibold">{usuarioSelecionado?.nacionalidade}</h2>
                 <h2>Nacionalidade</h2>
               </div>
             </div>
@@ -211,15 +212,15 @@ export default function Perfil() {
           <div className="flex flex-col gap-10 md:flex-row">
             <div>
               <h2 className="flex items-center gap-2 my-2">Tempo de Uso</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.tempoDeUso as number} Horas</h2>
+              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado?.tempoDeUso as number} Horas</h2>
             </div>
             <div>
               <h2 className="flex items-center gap-2 my-2">Mensagens Trocadas</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.mensagensTotais as number} Mensagens</h2>
+              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado?.mensagensTotais as number} Mensagens</h2>
             </div>
             <div>
               <h2 className="flex items-center gap-2 my-2">Sessões Concluidas</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.sessoesTotais as number} Sessões Concluidas </h2>
+              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado?.sessoesTotais as number} Sessões Concluidas </h2>
             </div>
           </div>
         </section>
