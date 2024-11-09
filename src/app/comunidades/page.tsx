@@ -9,11 +9,17 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
   const { logar } = useUsuarioStore();
+
+  let usuarioid: string;
+
   useEffect(() => {
     async function buscaUsuarios(idUsuario: string) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`);
       if (response.status === 200) {
         const dados = await response.json();
+        usuarioid = dados.id;
+        console.log(usuarioid);
+        console.log(dados.id);
         logar(dados);
       }
     }
@@ -35,8 +41,7 @@ export default function Home() {
     getUsuarios();
   }, []);
 
-  // const usuarioLogado = localStorage.getItem("client_key")?.replace(/"/g, "");
-  // let listaUsuarios = usuarios.filter((usuario) => usuario.id !== usuarioLogado).map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
+  let listaUsuarios = usuarios.filter((usuario) => usuario.id !== usuarioid).map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
 
   return (
     <div>
@@ -47,7 +52,7 @@ export default function Home() {
         <section>
           <Comunidades />
         </section>
-        {/* <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 gap-6">{listaUsuarios}</section> */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 gap-6">{listaUsuarios}</section>
       </main>
     </div>
   );
