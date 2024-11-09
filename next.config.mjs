@@ -9,6 +9,11 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "files.tecnoblog.net"
+            },
+
+            {
+                protocol: "https",
+                hostname: "avatars.githubusercontent.com"
             }
         ]
     },

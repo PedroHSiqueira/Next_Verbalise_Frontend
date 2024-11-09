@@ -15,6 +15,7 @@ import Cookies from "js-cookie";
 import Select from "react-select";
 
 type Inputs = {
+  foto: string;
   nascimento: string;
   nacionalidade: string;
   descricao: string;
@@ -73,6 +74,7 @@ export default function Perfil() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        foto: data.foto as string,
         nascimento: (data.nascimento + "T00:00:00+00:00") as string,
         nacionalidade: data.nacionalidade as string,
         descricao: data.descricao || ("..." as string),
@@ -290,6 +292,11 @@ export default function Perfil() {
       <Modal open={open} onClose={onCloseModal} closeOnOverlayClick>
         <h2 className=" bg-[#693f94] text-white rounded-md p-3 mt-10">Atualizar Campos Do Perfil de Usuário</h2>
         <form className="max-w-sm mx-auto mt-5" onSubmit={handleSubmit(atualizaPerfil)}>
+          <div className="mb-5">
+            <label htmlFor="foto" className="form-label">URL da Foto:</label>
+            <input type="url" className="form-control"
+              id="foto" required {...register("foto")} />
+          </div>
           <div className="mb-5">
             <label htmlFor="default-datepicker" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Data de Nascimento
