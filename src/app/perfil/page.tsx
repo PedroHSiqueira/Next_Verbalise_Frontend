@@ -293,38 +293,42 @@ export default function Perfil() {
         <h2 className=" bg-[#693f94] text-white rounded-md p-3 mt-10">Atualizar Campos Do Perfil de Usuário</h2>
         <form className="max-w-sm mx-auto mt-5" onSubmit={handleSubmit(atualizaPerfil)}>
           <div className="mb-5">
-            <label htmlFor="foto" className="form-label">URL da Foto:</label>
-            <input type="url" className="form-control"
-              id="foto" required {...register("foto")} />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="default-datepicker" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Data de Nascimento
+            <label htmlFor="foto" className="form-label">
+              URL da Foto:
             </label>
-            <div className="relative max-w-sm">
+            <input type="text" className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="foto" required {...register("foto")} />
+          </div>
+            <div className="flex gap-5 mb-5">
+            <div className="w-full">
+              <label htmlFor="default-datepicker" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Data de Nascimento
+              </label>
+              <div className="relative">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                 </svg>
               </div>
-              <input id="default-datepicker" defaultValue={dataNascimento} type="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
+              <input id="default-datepicker" defaultValue={dataNascimento} type="date" className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Selecione sua data de nascimento" {...register("nascimento")} required />
+              </div>
             </div>
-          </div>
-          <div className="mb-5">
-            <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <div className="w-full">
+              <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Gênero
-            </label>
-            <select id="gender" defaultValue={usuario.genero} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
+              </label>
+              <select id="gender" defaultValue={usuario.genero} className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("genero")}>
               <option value={"HOMEM"}>Homem</option>
               <option value={"MULHER"}>Mulher</option>
               <option value={"NAO_INFORMADO"}>Não Informar</option>
-            </select>
-          </div>
-          <div className="mb-5">
-            <label htmlFor="Nacionality" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              </select>
+            </div>
+            </div>
+            <div className="flex gap-5 mb-5">
+            <div className="w-full">
+              <label htmlFor="Nacionality" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Nacionalidade
-            </label>
-            <select id="Nacionality" defaultValue={usuario.nacionalidade} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
+              </label>
+              <select id="Nacionality" defaultValue={usuario.nacionalidade} className="bg-gray-50 min-w-[180px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("nacionalidade")} required>
               <option>Alemão</option>
               <option>Brasileiro</option>
               <option>Britanico</option>
@@ -338,13 +342,13 @@ export default function Perfil() {
               <option>Indonésio</option>
               <option>Japonês</option>
               <option>Russo</option>
-            </select>
-          </div>
-          <div className="mb-5">
-            <label htmlFor="Native" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              </select>
+            </div>
+            <div className="w-full">
+              <label htmlFor="Native" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Lingua Nativa
-            </label>
-            <select id="native" defaultValue={usuario.linguaMaternaId as number} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
+              </label>
+              <select id="native" defaultValue={usuario.linguaMaternaId as number} className="bg-gray-50 border min-w-[180px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" {...register("linguaMaterna")}>
               <option value={5}>Alemão</option>
               <option value={2}>Inglês</option>
               <option value={11}>Indonésio</option>
@@ -356,8 +360,9 @@ export default function Perfil() {
               <option value={4}>Mandarim</option>
               <option value={3}>Japonês</option>
               <option value={8}>Coreano</option>
-            </select>
-          </div>
+              </select>
+            </div>
+            </div>
           <div className="mb-5">
             <label htmlFor="languages" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Linguas de Interesse
