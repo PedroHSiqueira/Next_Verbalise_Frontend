@@ -194,7 +194,7 @@ export default function Detalhes() {
         <section className="w-full mb-10">
           <h2 className="text-xl font-bold mb-2">Sobre mim</h2>
           <textarea readOnly className="bg-white text-wrap w-full p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)0px_6px_12px-2px,rgba(0,0,0,0.3)_0px_3px_7px-3px]">
-            {descricaoUsuario || "Aguardando dados"}
+            {usuarioSelecionado?.descricao || "Aguardando dados"}
           </textarea>
         </section>
         <section className="mb-14">
