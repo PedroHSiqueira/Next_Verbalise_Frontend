@@ -1,6 +1,6 @@
 "use client";
 import Comunidades from "@/components/BannerComunidade";
-import ItemUsuario from "@/components/cardUsuario";
+import ItemUsuario from "@/components/ItemUsuario";
 import Header from "@/components/header";
 import { useUsuarioStore } from "@/context/usuario";
 import { UsuarioI } from "@/utils/types/usuarios";
