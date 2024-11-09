@@ -35,8 +35,8 @@ export default function Home() {
     getUsuarios();
   }, []);
 
-  const usuarioLogado = localStorage.getItem("client_key")?.replace(/"/g, "");
-  let listaUsuarios = usuarios.filter((usuario) => usuario.id !== usuarioLogado).map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
+  // const usuarioLogado = localStorage.getItem("client_key")?.replace(/"/g, "");
+  // let listaUsuarios = usuarios.filter((usuario) => usuario.id !== usuarioLogado).map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
 
   return (
     <div>
@@ -47,7 +47,7 @@ export default function Home() {
         <section>
           <Comunidades />
         </section>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 gap-6">{listaUsuarios}</section>
+        {/* <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 gap-6">{listaUsuarios}</section> */}
       </main>
     </div>
   );
