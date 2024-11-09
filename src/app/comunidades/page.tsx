@@ -1,10 +1,14 @@
 'use client';
 import Comunidades from '@/components/BannerComunidade';
+import ItemUsuario from '@/components/cardUsuario';
 import Header from '@/components/header';
 import { useUsuarioStore } from '@/context/usuario';
-import { useEffect } from 'react';
+import { UsuarioI } from '@/utils/types/usuarios';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+
+  const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
   const { logar } = useUsuarioStore();
   useEffect(() => {
     async function buscaUsuarios(idUsuario: string) {
@@ -21,7 +25,19 @@ export default function Home() {
       const usuarioValor = usuarioSalvo.replace(/"/g, '');
       buscaUsuarios(usuarioValor);
     }
+
+    async function getUsuarios() {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
+      if (response.status == 200) {
+        const dados = await response.json();
+        console.log(dados);
+
+        setUsuarios(dados);
+      }
+    }
+    getUsuarios();
   }, []);
+  let listaUsuarios = usuarios.map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
 
   return (
     <div>
@@ -32,51 +48,8 @@ export default function Home() {
         <section>
           <Comunidades />
         </section>
-        <section>
-          {/* <div className="mb-6">
-          <button className="px-4 py-2 bg-yellow-200 text-gray-700 rounded">
-            Filtrar
-          </button>
-        </div> */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 p-10 gap-6">
-            <div className="border rounded-lg max-w-[506px] max-h-[266px] p-4 shadow bg-[#f3efe5]">
-              <div className="flex items-center mb-4">
-                <img
-                  className="w-16 h-16 rounded-full"
-                  src="./Bandeiras/Brazil.png"
-                  alt="Foto"
-                />
-                <div className="ml-4">
-                  <h2 className="text-xl font-semibold">
-                    Nome Usuario <span className="text-gray-500">00</span>
-                  </h2>
-                  <p className="text-sm">Nacionalidade: Indefinido</p>
-                </div>
-              </div>
-              <p className="text-gray-600 text-sm mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus porta, metus quis vehicula venenatis
-              </p>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <span className="mr-2">Fala:</span>
-                  <img
-                    className="w-8 h-8"
-                    src="./Bandeiras/france.png"
-                    alt="França"
-                  />
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2">Aprende:</span>
-                  <img
-                    className="w-8 h-8"
-                    src="./Bandeiras/brazil.png"
-                    alt="Brasil"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 gap-6'>
+        {listaUsuarios}
         </section>
       </main>
     </div>
