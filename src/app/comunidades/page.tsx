@@ -35,8 +35,8 @@ export default function Home() {
     getUsuarios();
   }, []);
 
-  const usuarioLogado = localStorage.getItem("client_key")?.replace(/"/g, "");
-  let listaUsuarios = usuarios.filter((usuario) => usuario.id !== usuarioLogado).map((usuario) => <ItemUsuario key={usuario.id} data={usuario} />);
+  const { usuario } = useUsuarioStore();
+  let listaUsuarios = usuarios.filter((usuarioItem) => usuarioItem.id !== usuario?.id).map((usuarioItem) => <ItemUsuario key={usuarioItem.id} data={usuarioItem} />);
 
   return (
     <div>
