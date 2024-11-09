@@ -1,4 +1,5 @@
 import { UsuarioI } from "@/utils/types/usuarios";
+import Link from "next/link";
 
 
 
@@ -19,7 +20,7 @@ export default function ItemUsuario({ data }: { data: UsuarioI }) {
 
     return (
 
-        
+        <Link href={`/detalhes/${data.id}`}>
             <div className="border rounded-lg max-w-[506px] max-h-[266px] p-4 shadow bg-[#f3efe5]">
                 <div className="flex items-center mb-4">
                     <img
@@ -55,7 +56,7 @@ export default function ItemUsuario({ data }: { data: UsuarioI }) {
                         />
                     </div>
                 </div>
-            </div>
+            </div> </Link>
         
     );
 };

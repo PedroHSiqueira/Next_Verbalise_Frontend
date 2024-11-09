@@ -227,7 +227,7 @@ export default function Perfil() {
       </header>
       <main className="mx-20">
         <section className="flex mb-14 gap-10 flex-col  md:flex-row lg:gap-10 lg:mb-10">
-          <Image alt="avatar icon" width={215} height={215} src={usuario.foto} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
+          <Image alt="avatar icon"width={215} height={215} src={usuario.foto} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex items-center gap-20 md:gap-4">
               <h1 className="text-2xl font-bold">{usuario.nome}</h1>
