@@ -5,7 +5,6 @@ import Link from "next/link";
 
 
 export default function ItemUsuario({ data }: { data: UsuarioI }) {
-    
     function calculaIdade(dataNascimento: string) {
         const dataAtual = new Date();
         const dataNasc = new Date(dataNascimento);
@@ -20,43 +19,43 @@ export default function ItemUsuario({ data }: { data: UsuarioI }) {
 
     return (
 
-        <Link href={`/detalhes/${data.id}`}>
-            <div className="border rounded-lg max-w-[506px] max-h-[266px] p-4 shadow bg-[#f3efe5]">
-                <div className="flex items-center mb-4">
+
+       <Link href={`/detalhes/${data.id}`}> <div className="border rounded-lg max-w-[506px] max-h-[266px] p-4 shadow bg-[#f3efe5]">
+            <div className="flex items-center mb-4">
+                <img
+                    className="w-16 h-16 rounded-full"
+                    src={data.foto}
+                    alt="Foto"
+                />
+                <div className="ml-4">
+                    <h2 className="text-xl font-semibold">
+                        {data.nome} {idadeConvertida}
+                    </h2>
+                    <p className="text-sm">Nacionalidade: {data.nacionalidade}</p>
+                </div>
+            </div>
+            <p className="text-gray-600 text-sm mb-4">
+                {data.descricao}
+            </p>
+            <div className="flex justify-between items-center">
+                <div className="flex items-center">
+                    <span className="mr-2">Fala: </span>
                     <img
-                        className="w-16 h-16 rounded-full"
-                        src={data.foto}
-                        alt="Foto"
+                        className="w-8 h-8"
+                        src="./Bandeiras/france.png"
+                        alt="França"
                     />
-                    <div className="ml-4">
-                        <h2 className="text-xl font-semibold">
-                            {data.nome} {idadeConvertida}
-                        </h2>
-                        <p className="text-sm">Nacionalidade: {data.nacionalidade}</p>
-                    </div>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
-                    {data.descricao}
-                </p>
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                        <span className="mr-2">Fala: </span>
-                        <img
-                            className="w-8 h-8"
-                            src="./Bandeiras/france.png"
-                            alt="França"
-                        />
-                    </div>
-                    <div className="flex items-center">
-                        <span className="mr-2">Aprende:</span>
-                        <img
-                            className="w-8 h-8"
-                            src="./Bandeiras/brazil.png"
-                            alt="Brasil"
-                        />
-                    </div>
+                <div className="flex items-center">
+                    <span className="mr-2">Aprende:</span>
+                    <img
+                        className="w-8 h-8"
+                        src="./Bandeiras/brazil.png"
+                        alt="Brasil"
+                    />
                 </div>
-            </div> </Link>
-        
+            </div>
+        </div>
+        </Link>
     );
 };

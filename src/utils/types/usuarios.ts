@@ -7,9 +7,9 @@ export interface UsuarioI {
   descricao: string;
   foto: string;
   genero: string;
-  linguaMaternaId: Number;
+  linguaMaternaId: number; // Use "number" minúsculo aqui
   idiomasInterresse: string[];
-  tempoDeUso: Number;
-  mensagensTotais: Number;
-  sessoesTotais: Number;
+  tempoDeUso: number; // Use "number" minúsculo aqui
+  mensagensTotais: number; // Use "number" minúsculo aqui
+  sessoesTotais: number; // Use "number" minúsculo aqui
 }
