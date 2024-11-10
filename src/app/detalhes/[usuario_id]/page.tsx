@@ -28,16 +28,6 @@ export default function Perfil() {
     }
   }, [usuarioId]);
 
-  useEffect(() => {
-   
-    if (usuario && !usuario.nome) {
-      const usuarioLocal = localStorage.getItem("usuario");
-      if (usuarioLocal) {
-        logar(JSON.parse(usuarioLocal));  
-      }
-    }
-  }, [usuario, logar]);
-
   async function getDadosUsuario(id: string) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${id}`);
     if (response.ok) {
