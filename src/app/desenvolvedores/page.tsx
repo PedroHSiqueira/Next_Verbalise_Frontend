@@ -1,8 +1,6 @@
 'use client';
 import Header from '@/components/header';
 import Link from 'next/link';
-import { useUsuarioStore } from '@/context/usuario';
-import { useEffect } from 'react';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
@@ -11,23 +9,6 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const { logar } = useUsuarioStore();
-  useEffect(() => {
-    async function buscaUsuarios(idUsuario: string) {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`,
-      );
-      if (response.status === 200) {
-        const dados = await response.json();
-        logar(dados);
-      }
-    }
-    if (localStorage.getItem('client_key')) {
-      const usuarioSalvo = localStorage.getItem('client_key') as string;
-      const usuarioValor = usuarioSalvo.replace(/"/g, '');
-      buscaUsuarios(usuarioValor);
-    }
-  },[]);
   return (
     <div>
       <header className="mt-52">

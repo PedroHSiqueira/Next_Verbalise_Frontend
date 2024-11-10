@@ -6,7 +6,7 @@ import { HiAnnotation } from 'react-icons/hi';
 import { HiUserGroup } from 'react-icons/hi';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { JetBrains_Mono } from 'next/font/google';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const jetbrains = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
@@ -14,9 +14,25 @@ const jetbrains = JetBrains_Mono({
 });
 
 export default function Header() {
-  const { usuario, deslogar } = useUsuarioStore();
+  const { usuario, logar, deslogar } = useUsuarioStore();
   const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem("client_key")) {
+      const usuarioSalvo = localStorage.getItem("client_key") as string;
+      const usuarioValor = usuarioSalvo.replace(/"/g, "");
+      buscaUsuarios(usuarioValor);
+    }
+
+    async function buscaUsuarios(idUsuario: string) {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/conta/${idUsuario}`);
+      if (response.status === 200) {
+        const dados = await response.json();
+        logar(dados);
+      }
+    }
+  }, []);
 
   const abrirNavbar = () => {
     setIsClicked(!isClicked);
