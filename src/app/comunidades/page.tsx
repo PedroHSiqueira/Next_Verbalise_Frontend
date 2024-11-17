@@ -10,17 +10,17 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
   const { usuario } = useUsuarioStore();
-  const router = useRouter();
+  // const router = useRouter();
   useEffect(() => {
-    if (!usuario) {
-      router.push("/login");
-      return;
-    }
+  //   if (!usuario) {
+  //     router.push("/login");
+  //     return;
+  //   }
 
-    if (usuario.idiomasInterresse.length === 0 || !usuario.linguaMaternaId || !usuario.descricao || !usuario.nascimento) {
-      router.push("/perfil");
-      return;
-    }
+  //   if (usuario.idiomasInterresse.length === 0 || !usuario.linguaMaternaId || !usuario.descricao || !usuario.nascimento) {
+  //     router.push("/perfil");
+  //     return;
+  //   }
 
     async function getUsuarios() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
