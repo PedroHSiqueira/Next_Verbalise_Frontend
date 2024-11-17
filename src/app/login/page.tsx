@@ -40,7 +40,7 @@ export default function login() {
       logar(dados);
 
       Cookies.set("descricao", dados.descricao);
-      Cookies.set("token_usuario_logado", dados.nome);
+      Cookies.set("token_usuario_logado", "Aprovado");
 
       if (data.continuarConectado) {
         localStorage.setItem("client_key", JSON.stringify(dados.id));

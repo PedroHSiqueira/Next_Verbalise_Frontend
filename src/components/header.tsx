@@ -24,6 +24,7 @@ export default function Header() {
     if (localStorage.getItem("client_key")) {
       const usuarioSalvo = localStorage.getItem("client_key") as string;
       const usuarioValor = usuarioSalvo.replace(/"/g, "");
+      Cookies.set("token_usuario_logado", "Aprovado");
       buscaUsuarios(usuarioValor);
     }
 
