@@ -402,6 +402,7 @@ export default function Perfil() {
                 defaultValue={usuario.linguaMaternaId as number}
                 className="bg-gray-50 border min-w-[180px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 {...register("linguaMaterna")}
+                required
               >
                 <option value={5}>Alemão</option>
                 <option value={2}>Inglês</option>
@@ -427,6 +428,7 @@ export default function Perfil() {
               placeholder="Selecione..."
               options={linguasInteresseDisponivel}
               onChange={handleChanges}
+              required
             />
           </div>
           <div className="max-w-sm mx-auto mb-5">

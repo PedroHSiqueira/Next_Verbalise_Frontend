@@ -4,11 +4,24 @@ import ItemUsuario from "@/components/ItemUsuario";
 import Header from "@/components/header";
 import { useUsuarioStore } from "@/context/usuario";
 import { UsuarioI } from "@/utils/types/usuarios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
+  const { usuario } = useUsuarioStore();
+  const router = useRouter();
   useEffect(() => {
+    if (!usuario) {
+      router.push("/login");
+      return;
+    }
+
+    if (usuario.idiomasInterresse.length === 0 || !usuario.linguaMaternaId || !usuario.descricao || !usuario.nascimento) {
+      router.push("/perfil");
+      return;
+    }
+
     async function getUsuarios() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
       if (response.status == 200) {
@@ -20,7 +33,6 @@ export default function Home() {
     getUsuarios();
   }, []);
 
-  const { usuario } = useUsuarioStore();
   let listaUsuarios = usuarios.filter((usuarioItem) => usuarioItem.id !== usuario?.id).map((usuarioItem) => <ItemUsuario key={usuarioItem.id} data={usuarioItem} />);
 
   return (

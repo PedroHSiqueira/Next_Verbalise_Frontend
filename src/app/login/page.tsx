@@ -49,7 +49,18 @@ export default function login() {
           localStorage.removeItem("client_key");
         }
       }
-      router.push("/");
+
+      if (Object.values(dados).some((value) => value === null)) {
+        router.push("/perfil");
+        toast({
+          variant: "success",
+          title: "Por favor, complete seu perfil",
+          description: `Complete seu perfil para ter acesso a todas as funcionalidades da Verbalize!`,
+        });
+      } else {
+        router.push("/");
+      }
+
       toast({
         variant: "success",
         title: "Login efetuado com sucesso",
