@@ -54,8 +54,6 @@ export default function ItemUsuario({ data }: { data: UsuarioI }) {
       break;
   }
 
-  console.log(data.idiomasInterresse);
-
   function getIdiomaImagem(id: number) {
     switch (id) {
       case 1:
@@ -106,7 +104,6 @@ export default function ItemUsuario({ data }: { data: UsuarioI }) {
           <div className="flex items-center">
             <span className="mr-2">Aprende:</span>
             {data.idiomasInterresse.slice(0, 2).map((idiomaId: any) => {
-              console.log(idiomaId);
               return <img key={idiomaId} className="w-8 h-8 ml-2" src={`./Bandeiras/${getIdiomaImagem(idiomaId.idiomaId)}.png`} />;
             })}
             {data.idiomasInterresse.length > 2 && <span className="mx-2 text-3xl">+</span>}

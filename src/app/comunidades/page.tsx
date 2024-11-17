@@ -7,11 +7,22 @@ import { UsuarioI } from "@/utils/types/usuarios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import Cookies from "js-cookie";
+
 export default function Home() {
   const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
   const { usuario } = useUsuarioStore();
   const router = useRouter();
+
+  function verificaUsuarioLogado() {
+    if (Cookies.get("token_usuario_logado") == undefined) {
+      router.push("/login");
+    }
+  }
+
   useEffect(() => {
+    verificaUsuarioLogado();
+
     async function getUsuarios() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
       if (response.status == 200) {

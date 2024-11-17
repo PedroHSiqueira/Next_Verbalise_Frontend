@@ -34,7 +34,6 @@ export default function Perfil() {
     if (response.ok) {
       const dados = await response.json();
       setUsuarioSelecionado(dados);
-      console.log(dados.linguaMaternaId);
       setDataNascimento(dados.nascimento);
     } else {
       toast({ title: "Erro ao carregar o perfil do usuário" });

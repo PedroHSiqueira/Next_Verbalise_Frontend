@@ -37,10 +37,10 @@ export default function login() {
     });
     if (response.status === 200) {
       const dados = await response.json();
+      logar(dados);
 
       Cookies.set("descricao", dados.descricao);
-
-      logar(dados);
+      Cookies.set("token_usuario_logado", dados.nome);
 
       if (data.continuarConectado) {
         localStorage.setItem("client_key", JSON.stringify(dados.id));

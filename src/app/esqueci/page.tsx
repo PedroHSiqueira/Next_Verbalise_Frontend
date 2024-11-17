@@ -19,7 +19,6 @@ export default function login() {
 
   async function enviaRecuperacao(data: Inputs) {
     const token = Math.floor(100000 + Math.random() * 900000);
-    console.log(token.toString())
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_URL_API}/usuarios/esqueceu/${data.email}`,
       {

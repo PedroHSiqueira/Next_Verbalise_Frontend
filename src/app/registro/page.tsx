@@ -37,10 +37,8 @@ export default function Registro() {
         }),
       },
     );
-    console.log(response);
     if (response.status === 201) {
       const dados = await response.json();
-      console.log(dados);
       router.push('/login');
       toast({
         variant: 'success',
