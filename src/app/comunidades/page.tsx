@@ -14,8 +14,10 @@ export default function Home() {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
       if (response.status == 200) {
         const dados = await response.json();
+        const filteredDados = dados.filter((usuario: UsuarioI) => usuario.linguaMaternaId && usuario.idiomasInterresse.length > 0);
         console.log(dados);
-        setUsuarios(dados);
+        console.log(filteredDados);
+        setUsuarios(filteredDados);
       }
     }
     getUsuarios();

@@ -1,6 +1,5 @@
 import { UsuarioI } from "@/utils/types/usuarios";
 import Link from "next/link";
-import { useEffect } from "react";
 
 export default function ItemUsuario({ data }: { data: UsuarioI }) {
   function calculaIdade(dataNascimento: string) {
@@ -55,6 +54,35 @@ switch (data.linguaMaternaId) {
     break;
 }
 
+function getIdiomaImagem(id: number) {
+  switch (id) {
+    case 1:
+      return "brazil";
+    case 2:
+      return "usa";
+    case 3:
+      return "japan";
+    case 4:
+      return "china";
+    case 5:
+      return "germany";
+    case 6:
+      return "israel";
+    case 7:
+      return "france";
+    case 8:
+      return "greece";
+    case 9:
+      return "tagalog";
+    case 10:
+      return "arabic";
+    case 11:
+      return "indonesia";
+    default:
+      return "brazil";
+  }
+}
+
   return (
     <Link href={`/detalhes/${data.id}`}>
         <div className="border rounded-lg max-w-[506px] min-h-[242px] max-h-[300px] p-4 shadow bg-[#f3efe5] md:min-h-[242px]">
@@ -76,29 +104,13 @@ switch (data.linguaMaternaId) {
             <div className="flex items-center">
               <span className="mr-2">Aprende:</span>
               <img className="w-8 h-8" src={`./Bandeiras/brazil.png`}/>
-              {/* {data.idiomasInterresse.slice(0, 2).map((lingua, index) => {
-                const linguaId = data.idiomasInterresse[index];
-                let imagemLingua;
-                switch (lingua) {
-                  case "brazil":
-                    imagemLingua = "brazil";
-                    break;
-                  case "usa":
-                    imagemLingua = "usa";
-                    break;
-                  case "japan":
-                    imagemLingua = "japan";
-                    break;
-                  case "china":
-                    imagemLingua = "china";
-                    break;
-                  case "germany":
-                    imagemLingua = "germany";
-                    break;
-                }
-                return <img key={index} className="w-8 h-8 mr-1" src={`./Bandeiras/${lingua}.png`} alt={lingua} />;
-              })}
-              {data.idiomasInterresse.length > 2 && <span>+</span>} */}
+                {/* {data.idiomasInterresse.slice(0, 1).map((idiomaId) => {
+                  console.log(idiomaId);
+                return (
+                  <img key={idiomaId} className="w-8 h-8 ml-2" src={`./Bandeiras/${getIdiomaImagem(idiomaId.idiomaId)}.png`} />
+                );
+                })} */}
+              {data.idiomasInterresse.length > 2 && <span className="mx-2 text-3xl">+</span>}
             </div>
           </div>
         </div>
