@@ -191,6 +191,10 @@ export default function Perfil() {
             {usuarioSelecionado.descricao || "Aguardando dados"}
           </textarea>
         </section>
+        <section className="w-fit mb-10">
+          <h2 className="text-xl font-bold mb-2">Email para contato</h2>
+          <h2 className="px-5 p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado.email as String}</h2>
+        </section>
         <section className="mb-14">
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Nativa</h2>
           <div className="flex flex-col gap-10 md:flex-row">
