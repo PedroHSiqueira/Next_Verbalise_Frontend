@@ -88,6 +88,7 @@ export default function Perfil() {
   }
 
   async function atualizaPerfil(data: Inputs) {
+    console.log(data);
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/mudainformacoes/${usuario.id}`, {
       method: "put",
       headers: {

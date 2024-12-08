@@ -9,6 +9,7 @@ import { JetBrains_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
+import { House } from "lucide-react";
 
 const jetbrains = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
@@ -65,16 +66,16 @@ export default function Header() {
             <div className="hidden items-center justify-between w-full lg:flex md:w-auto md:order-1" id="navbar-sticky">
               <ul className="flex items-center justify-center flex-row gap-36  font-medium ">
                 <li>
+                  <a href="/" className=" flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                    <House size={38} className="text-black" />
+                    Home
+                  </a>
+                </li>
+                <li>
                   <Link href="/comunidades" className="flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-base rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                     <HiUserGroup size={38} className="text-black" />
                     Comunidades
                   </Link>
-                </li>
-                <li>
-                  <a href="/mensagens" className=" flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                    <HiAnnotation size={38} className="text-black" />
-                    Mensagens
-                  </a>
                 </li>
                 <li className="flex items-center justify-center gap-5">
                   <Link href="/perfil" className="flex items-center justify-center flex-col font-bold py-2 px-3 text-white text-lg rounded hover:text-[#B38000] hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#B38000]  md:p-0 md:dark:hover:text-[#B38000]  dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
