@@ -1,7 +1,7 @@
 'use client';
 import Header from '@/components/header';
 import Link from 'next/link';
-import { Poppins } from 'next/font/google';
+import {Poppins} from 'next/font/google';
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],

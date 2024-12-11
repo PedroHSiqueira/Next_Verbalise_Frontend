@@ -1,13 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
-import { useUsuarioStore } from '@/context/usuario';
-import { useToast } from '@/hooks/use-toast';
-import { ToastAction } from '@radix-ui/react-toast';
-import { Checkbox } from '@/components/ui/checkbox';
-import { HiEnvelope } from 'react-icons/hi2';
-import { HiLockClosed } from 'react-icons/hi2';
+import {useForm} from 'react-hook-form';
+import {useToast} from '@/hooks/use-toast';
+import {HiEnvelope} from 'react-icons/hi2';
 
 type Inputs = {
   email: string;

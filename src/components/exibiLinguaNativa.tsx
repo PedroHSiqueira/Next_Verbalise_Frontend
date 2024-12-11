@@ -1,5 +1,5 @@
-import { idiomasNativos } from "@/utils/types/idiomasNativos";
-import { UsuarioI } from "@/utils/types/usuarios";
+import {idiomasNativos} from "@/utils/types/idiomasNativos";
+import {UsuarioI} from "@/utils/types/usuarios";
 
 export function exibeLinguaNativa(usuario: UsuarioI) {
   const idioma = idiomasNativos[usuario.linguaMaternaId];

@@ -2,15 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
-import { useUsuarioStore } from "@/context/usuario";
-import { useEffect, useState } from "react";
-import { IdiomaUsuarioI } from "@/utils/types/idiomaUsuario";
+import {useUsuarioStore} from "@/context/usuario";
+import {useEffect, useState} from "react";
+import {IdiomaUsuarioI} from "@/utils/types/idiomaUsuario";
 import ItemLanguage from "@/components/itemLanguage";
-import { useToast } from "@/hooks/use-toast";
+import {useToast} from "@/hooks/use-toast";
 import "react-responsive-modal/styles.css";
-import { useParams } from "next/navigation";
-import { UsuarioI } from "@/utils/types/usuarios";
-import { exibeLinguaNativa } from "@/components/exibiLinguaNativa";
+import {useParams} from "next/navigation";
+import {UsuarioI} from "@/utils/types/usuarios";
+import {exibeLinguaNativa} from "@/components/exibiLinguaNativa";
 
 export default function Perfil() {
   const { toast } = useToast();

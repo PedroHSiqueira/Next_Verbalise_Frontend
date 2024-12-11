@@ -2,10 +2,10 @@
 import Comunidades from "@/components/BannerComunidade";
 import ItemUsuario from "@/components/ItemUsuario";
 import Header from "@/components/header";
-import { useUsuarioStore } from "@/context/usuario";
-import { UsuarioI } from "@/utils/types/usuarios";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import {useUsuarioStore} from "@/context/usuario";
+import {UsuarioI} from "@/utils/types/usuarios";
+import {useRouter} from "next/navigation";
+import {useEffect, useState} from "react";
 
 import Cookies from "js-cookie";
 

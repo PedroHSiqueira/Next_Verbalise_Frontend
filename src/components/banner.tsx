@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { FaPlus } from 'react-icons/fa';
-import { Poppins } from 'next/font/google';
+import {FaPlus} from 'react-icons/fa';
+import {Poppins} from 'next/font/google';
 import Image from 'next/image';
 
 const poppins = Poppins({

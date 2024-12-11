@@ -1,5 +1,5 @@
-import { UsuarioI } from '@/utils/types/usuarios';
-import { create } from 'zustand';
+import {UsuarioI} from '@/utils/types/usuarios';
+import {create} from 'zustand';
 
 type UsuarioStore = {
   usuario: UsuarioI;

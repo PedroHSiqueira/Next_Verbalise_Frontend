@@ -1,4 +1,4 @@
-import { UsuarioI } from "@/utils/types/usuarios";
+import {UsuarioI} from "@/utils/types/usuarios";
 import Link from "next/link";
 
 export default function ItemUsuario({ data }: { data: UsuarioI }) {

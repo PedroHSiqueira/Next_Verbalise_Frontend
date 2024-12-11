@@ -1,11 +1,10 @@
 "use client";
 import Conversation from "@/components/chat";
 import Header from "@/components/header";
-import { useUsuarioStore } from "@/context/usuario";
-import { UsuarioI } from "@/utils/types/usuarios";
-import { useParams } from "next/navigation";
-import React, { useState } from "react";
-import { useEffect } from "react";
+import {useUsuarioStore} from "@/context/usuario";
+import {UsuarioI} from "@/utils/types/usuarios";
+import {useParams} from "next/navigation";
+import React, {useEffect, useState} from "react";
 
 export default function Mensagens() {
   const { logar } = useUsuarioStore();

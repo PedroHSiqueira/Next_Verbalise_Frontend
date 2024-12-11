@@ -1,14 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { useToast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { HiEnvelope } from 'react-icons/hi2';
-import { HiLockClosed } from 'react-icons/hi2';
-import { HiMiniUserCircle } from 'react-icons/hi2';
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
-import { useState } from 'react';
+import {useToast} from '@/hooks/use-toast';
+import {useRouter} from 'next/navigation';
+import {useForm} from 'react-hook-form';
+import {HiEnvelope, HiLockClosed, HiMiniUserCircle} from 'react-icons/hi2';
+import {FaEye, FaEyeSlash} from "react-icons/fa";
+import {useState} from 'react';
 
 type Inputs = {
   nome: string;

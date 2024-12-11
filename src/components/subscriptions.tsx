@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { HiCheckBadge } from "react-icons/hi2";
-import { Poppins } from "next/font/google";
+import {HiCheckBadge} from "react-icons/hi2";
+import {Poppins} from "next/font/google";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],

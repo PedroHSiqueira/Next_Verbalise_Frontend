@@ -1,15 +1,14 @@
 "use client";
 import Link from "next/link";
-import { useUsuarioStore } from "@/context/usuario";
-import { useRouter } from "next/navigation";
-import { HiAnnotation } from "react-icons/hi";
-import { HiUserGroup } from "react-icons/hi";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { JetBrains_Mono } from "next/font/google";
-import { useEffect, useState } from "react";
+import {useUsuarioStore} from "@/context/usuario";
+import {useRouter} from "next/navigation";
+import {HiUserGroup} from "react-icons/hi";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {JetBrains_Mono} from "next/font/google";
+import {useEffect, useState} from "react";
 
 import Cookies from "js-cookie";
-import { House } from "lucide-react";
+import {House} from "lucide-react";
 
 const jetbrains = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],

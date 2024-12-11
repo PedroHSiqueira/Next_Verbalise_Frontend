@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import Header from '../components/header';
 import Banner from '@/components/banner';
-import Subscriptions from '@/components/subscriptions';
 
 export default function Home() {
   return (

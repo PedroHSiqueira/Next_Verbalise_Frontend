@@ -1,4 +1,4 @@
-import { IdiomaUsuarioI } from '@/utils/types/idiomaUsuario';
+import {IdiomaUsuarioI} from '@/utils/types/idiomaUsuario';
 import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 export default function ItemLanguage({ data }: { data: IdiomaUsuarioI }) {

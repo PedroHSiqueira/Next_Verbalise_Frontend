@@ -1,4 +1,4 @@
-import { CheckCheck } from "lucide-react";
+import {CheckCheck} from "lucide-react";
 import React from "react";
 
 type Props = {

@@ -1,18 +1,16 @@
 "use client";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { useUsuarioStore } from "@/context/usuario";
-import { useToast } from "@/hooks/use-toast";
-import { ToastAction } from "@radix-ui/react-toast";
-import { Checkbox } from "@/components/ui/checkbox";
-import { HiEnvelope } from "react-icons/hi2";
-import { HiLockClosed } from "react-icons/hi2";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import {useForm} from "react-hook-form";
+import {useRouter} from "next/navigation";
+import {useUsuarioStore} from "@/context/usuario";
+import {useToast} from "@/hooks/use-toast";
+import {ToastAction} from "@radix-ui/react-toast";
+import {Checkbox} from "@/components/ui/checkbox";
+import {HiEnvelope, HiLockClosed} from "react-icons/hi2";
+import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 import Cookies from "js-cookie";
-import { useState } from "react";
+import {useState} from "react";
 
 type Inputs = {
   email: string;
