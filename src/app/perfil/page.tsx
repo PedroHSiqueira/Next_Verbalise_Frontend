@@ -12,6 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 import "react-responsive-modal/styles.css";
 import Cookies from "js-cookie";
 import Select from "react-select";
+import Swal from "sweetalert2";
+import {useRouter} from "next/navigation";
+import {Clock, Mail, Trophy} from "lucide-react";
 
 type Inputs = {
   foto: string;
@@ -45,6 +48,7 @@ export default function Perfil() {
   const [open, setOpen] = useState(false);
   const [linguasInteresse, setLinguasInteresse] = useState([]);
   const [dataNascimento, setDataNascimento] = useState("");
+  const router = useRouter();
 
   const onOpenModal = () => {
     setDataNascimento(usuario.nascimento);
@@ -85,6 +89,54 @@ export default function Perfil() {
     genero = "M";
   } else {
     genero = "---";
+  }
+
+  async function excluirConta() {
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Você não poderá reverter isso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, remover!",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios/excluir/${usuario.id}`, {
+              method: "delete",
+              headers: {
+                "Content-Type": "application/json",
+              }
+            });
+          if (response.status == 204) {
+            window.location.href = "/";
+            toast({
+              variant: "default",
+              title: "Conta Excluída",
+              description: "Você será redirecionado para a página inicial",
+            });
+            localStorage.removeItem("client_key");
+          } else {
+            toast({
+              variant: "destructive",
+              title: "Algo deu errado",
+              description: "Verifique suas Informações e tente novamente",
+            });
+          }
+        } catch (error) {
+          console.error("Erro ao enviar requisição de remoção:", error);
+        }
+      }else {
+        toast({
+          variant: "default",
+          title: "Operação Cancelada",
+          description: "Sua conta não foi removida",
+        });
+      }
+    });
+
   }
 
   async function atualizaPerfil(data: Inputs) {
@@ -240,6 +292,8 @@ export default function Perfil() {
     );
   }
 
+  const desdeConvertido = usuario.createdAt ? new Date(usuario.createdAt).toISOString().split("T")[0] : "";
+  const desdeReverso = desdeConvertido.split("-").reverse().join("-").replace("-", "/").replace("-", "/");
   const idadeConvertida = Math.abs(calculaIdade(usuario.nascimento));
   return (
     <div>
@@ -255,6 +309,9 @@ export default function Perfil() {
               <Link href={"#"} onClick={onOpenModal} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center ">
                 Editar
               </Link>
+              <button onClick={excluirConta} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#FF0000] font-bold p-2 rounded-3xl border-[3px] border-[#FF0000] hover:bg-[#FF0000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center ">
+                Excluir
+              </button>
             </div>
             <div className="flex text-center text-sm gap-10 md:text-base  lg:text-start">
               <div>
@@ -278,31 +335,23 @@ export default function Perfil() {
             {descricaoUsuario || "Aguardando dados"}
           </textarea>
         </section>
-        <section className="w-fit mb-10">
-          <h2 className="text-xl font-bold mb-2">Email para contato</h2>
-          <h2 className="px-5 p-2 rounded-3xl border-2 border-[#b38000]">{usuario.email as String}</h2>
-        </section>
         <section className="mb-14">
-          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Destaques</h2>
+          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Destaques <Trophy color={"#C4B454"}/></h2>
           <div className="flex flex-col gap-10 md:flex-row">
-            <div>
-              <h2 className="flex items-center justify-center gap-2 my-2">Tempo de Uso</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.tempoDeUso as number} Horas</h2>
+            <div className="w-fit mb-10">
+              <h2 className="flex text-lg items-center justify-center gap-2 my-2">Email para contato <Mail size={17} /></h2>
+              <h2 className="px-5 p-2 rounded-3xl border-2 border-[#b38000]">{usuario.email as String}</h2>
             </div>
             <div>
-              <h2 className="flex items-center justify-center gap-2 my-2">Mensagens Trocadas</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.mensagensTotais as number} Mensagens</h2>
-            </div>
-            <div>
-              <h2 className="flex text-center items-center justify-center gap-2 my-2">Tempo Cadastrado</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuario.sessoesTotais as number} Sessões Concluidas </h2>
+              <h2 className="flex items-center text-lg justify-center gap-2 my-2">Usuário Desde <Clock size={17} /></h2>
+              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{desdeReverso}</h2>
             </div>
           </div>
         </section>
         <section className="mb-14">
           <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Linguas Nativa</h2>
           <div className="flex flex-col gap-10 md:flex-row">
-            <div>
+          <div>
               <h2 className="bg-white text-center p-4 rounded-3xl shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex items-center justify-center min-w-[150px]">{lingua || "Aguardando"}</h2>
             </div>
           </div>

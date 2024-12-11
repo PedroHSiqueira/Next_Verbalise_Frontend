@@ -62,9 +62,9 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#planos" className="hover:underline">
+                  <a href="/sobre" className="hover:underline">
                     {' '}
-                    Planos
+                    Sobre nós
                   </a>
                 </li>
               </ul>

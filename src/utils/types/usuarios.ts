@@ -12,4 +12,6 @@ export interface UsuarioI {
   tempoDeUso: number;
   mensagensTotais: number;
   sessoesTotais: number;
+  createdAt: string;
+  updatedAt: string;
 }
