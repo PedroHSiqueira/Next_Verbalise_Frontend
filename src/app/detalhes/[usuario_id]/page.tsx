@@ -180,7 +180,7 @@ export default function Perfil() {
                 <h2>Nacionalidade</h2>
               </div>
             </div>
-            <Link href={`https://realtime-chat-app-seven-dun.vercel.app/conversations`} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center">
+            <Link href={`https://realtime-chat-app-seven-dun.vercel.app/conversations`} target={"_blank"} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center">
               Iniciar uma Conversa
             </Link>
           </div>
