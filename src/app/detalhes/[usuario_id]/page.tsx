@@ -2,15 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
-import {useUsuarioStore} from "@/context/usuario";
-import {useEffect, useState} from "react";
-import {IdiomaUsuarioI} from "@/utils/types/idiomaUsuario";
+import { useUsuarioStore } from "@/context/usuario";
+import { useEffect, useState } from "react";
+import { IdiomaUsuarioI } from "@/utils/types/idiomaUsuario";
 import ItemLanguage from "@/components/itemLanguage";
-import {useToast} from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import "react-responsive-modal/styles.css";
-import {useParams} from "next/navigation";
-import {UsuarioI} from "@/utils/types/usuarios";
-import {exibeLinguaNativa} from "@/components/exibiLinguaNativa";
+import { useParams } from "next/navigation";
+import { UsuarioI } from "@/utils/types/usuarios";
+import { exibeLinguaNativa } from "@/components/exibiLinguaNativa";
+import { Clock, Mail, Trophy } from "lucide-react";
 
 export default function Perfil() {
   const { toast } = useToast();
@@ -163,8 +164,7 @@ export default function Perfil() {
       </header>
       <main className="mx-20">
         <section className="flex mb-14 gap-10 flex-col  md:flex-row lg:gap-10 lg:mb-10">
-          <Image alt="avatar icon" width={215} height={215} src={usuarioSelecionado.foto}
-                 className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"/>
+          <Image alt="avatar icon" width={215} height={215} src={usuarioSelecionado.foto} className="rounded-full max-w-60 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]" />
           <div className="flex flex-col gap-5 justify-center">
             <div className="flex items-center gap-20 md:gap-4">
               <h1 className="text-2xl font-bold">{usuarioSelecionado.nome}</h1>
@@ -183,38 +183,33 @@ export default function Perfil() {
                 <h2>Nacionalidade</h2>
               </div>
             </div>
-            <Link href={`https://realtime-chat-app-seven-dun.vercel.app/conversations`} target={"_blank"}
-                  className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center">
+            <Link href={`https://realtime-chat-app-seven-dun.vercel.app/conversations`} target={"_blank"} className="hover:scale-110 px-2 py-1 transition delay-150 duration-300 ease-in-out text-[#b38000] font-bold p-2 rounded-3xl border-[3px] border-[#b38000] hover:bg-[#B38000] hover:text-white focus:ring-4 focus:outline-none text-xl text-center">
               Iniciar uma Conversa
             </Link>
           </div>
         </section>
         <section className="w-full mb-10">
           <h2 className="text-xl font-bold mb-2">Sobre mim</h2>
-          <textarea readOnly
-                    className="bg-white text-wrap w-full p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)0px_6px_12px-2px,rgba(0,0,0,0.3)_0px_3px_7px-3px]">
+          <textarea readOnly className="bg-white text-wrap w-full p-10 rounded-3xl shadow-[rgba(50,50,93,0.25)0px_6px_12px-2px,rgba(0,0,0,0.3)_0px_3px_7px-3px]">
             {usuarioSelecionado.descricao || "Aguardando dados"}
           </textarea>
         </section>
-        <section className="w-fit mb-10">
-          <h2 className="text-xl font-bold mb-2">Email para contato</h2>
-          <h2 className="px-5 p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado.email as String}</h2>
-        </section>
         <section className="mb-14">
-          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Destaques</h2>
+          <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">
+            Destaques <Trophy color={"#C4B454"} />
+          </h2>
           <div className="flex flex-col gap-10 md:flex-row">
+            <div className="w-fit mb-10">
+              <h2 className="flex text-lg items-center justify-center gap-2 my-2">
+                Email para contato <Mail size={17} />
+              </h2>
+              <h2 className="px-5 p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado  .email as String}</h2>
+            </div>
             <div>
-              <h2 className="flex items-center justify-center gap-2 my-2">Usuário Desde</h2>
+              <h2 className="flex items-center text-lg justify-center gap-2 my-2">
+                Usuário Desde <Clock size={17} />
+              </h2>
               <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{desdeReverso}</h2>
-            </div>
-            <div>
-              <h2 className="flex items-center justify-center gap-2 my-2">Mensagens Trocadas</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado.mensagensTotais as number} Mensagens</h2>
-            </div>
-            <div>
-              <h2 className="flex text-center items-center justify-center gap-2 my-2">Tempo Cadastrado</h2>
-              <h2 className="text-center p-2 rounded-3xl border-2 border-[#b38000]">{usuarioSelecionado.sessoesTotais as number} Sessões
-                Concluidas </h2>
             </div>
           </div>
         </section>
@@ -227,11 +222,10 @@ export default function Perfil() {
           </div>
         </section>
         {linguas.length > 0 && (
-            <section className="mb-14">
-              <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Línguas de Interesse</h2>
-              <div
-                  className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-10">{listaLinguas}</div>
-            </section>
+          <section className="mb-14">
+            <h2 className="flex items-center mb-2 gap-2 text-xl font-bold">Línguas de Interesse</h2>
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-10">{listaLinguas}</div>
+          </section>
         )}
       </main>
     </div>
